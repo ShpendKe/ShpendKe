@@ -2,8 +2,9 @@
 
 * Passionate about understand problems and solve them with simplicity
 * Studied computer science in Switzerland
-* Working as software engineer with focus in cloud, web
+* Working as software engineer with focus in cloud, devops and architecture
 * Love to support teams build amazing products
+* MCT (Microsoft Certified Trainer) for Azure (e.g. AZ 204, AZ 900, AZ 400, AZ 305, ...)
 
 # Why am I doing this?
 
