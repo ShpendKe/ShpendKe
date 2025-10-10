@@ -5,7 +5,7 @@ import type * as Preset from '@docusaurus/preset-classic';
 // This runs in Node.js - Don't use client-side code here (browser APIs, JSX...)
 
 const config: Config = {
-  title: 'El Cloud Compadre',
+  title: 'Cloud Compadre',
   tagline: 'Donde esta la cloud',
   favicon: 'img/favicon.ico',
 
@@ -40,11 +40,15 @@ const config: Config = {
     [
       'classic',
       {
-        docs: {
-          sidebarPath: './sidebars.ts',
-        },
+        docs: false,
         blog: {
           showReadingTime: true,
+          readingTime: ({content, locale, frontMatter, defaultReadingTime}) =>
+            defaultReadingTime({
+              content,
+              locale,
+              options: {wordsPerMinute: 300},
+            }),
           feedOptions: {
             type: ['rss', 'atom'],
             xslt: true,
@@ -53,6 +57,7 @@ const config: Config = {
           onInlineTags: 'warn',
           onInlineAuthors: 'warn',
           onUntruncatedBlogPosts: 'warn',
+          editLocalizedFiles: false,
         },
         theme: {
           customCss: './src/css/custom.css',
@@ -75,34 +80,11 @@ const config: Config = {
       },
       items: [
         {to: '/blog', label: 'Blog', position: 'left'},
-        {
-          href: 'https://github.com/facebook/docusaurus',
-          label: 'GitHub',
-          position: 'right',
-        },
+        {to: '/blog/authors/shpendkelmendi', label: 'About me', position: 'left'},
       ],
     },
     footer: {
       style: 'dark',
-      links: [
-        {
-          title: 'About me',
-          items: [
-            {
-              label: 'Blog',
-              to: '/blog',
-            },
-            {
-              label: 'GitHub',
-              href: 'https://github.com/shpendke',
-            },
-            {
-              label: 'LinkedIn',
-              href: 'www.linkedin.com/in/shpend-k',
-            },
-          ],
-        },
-      ],
       copyright: `Copyright © ${new Date().getFullYear()} Cloud Compadre. Built with Docusaurus.`,
     },
     prism: {
