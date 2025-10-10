@@ -1,8 +1,10 @@
 shpendkelmendi:
   name: Shpend Kelmendi
   title: Software Engineer & Architect
+  description: Shpend Kelmendi is a Software Engineer at bbv Software Services AG, working in the Cloud and Web space, and leading the Cloud Community. He spends his time helping teams build solutions that are simple, sustainable, and customer-focused. Most of his energy goes into Azure, where complexity is optional, but clarity is required. He’s also a Microsoft Certified Trainer (MCT), sharing what he learns and teaching others how to succeed in the cloud.
   url: https://www.linkedin.com/in/shpend-k/
   page: true
   socials:
-    linkedin: shpendke
+    linkedin: shpend-k
     github: shpendke
+    sessionize: https://sessionize.com/shpendke
