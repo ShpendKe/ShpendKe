@@ -19,9 +19,10 @@ Every topic I thought about… I told myself:
 - *"Does any of this add value in the time of AI?"*  
 
 So I stopped. Again and again.  
+
 <!-- truncate -->
 
----
+## Here’s the truth
 
 Here’s the truth:  
 I’m still not sure if this will change.  
@@ -35,8 +36,6 @@ My lessons. My mistakes. My wins.
 This blog isn’t about filling the internet with more information.  
 It’s about me—writing things down so I don’t lose them.  
 
----
-
 ## The Questions I Still Have
 
 - Which language should I use? German or English?  
@@ -45,7 +44,7 @@ It’s about me—writing things down so I don’t lose them.
 
 I don’t have the answers (yet).  
 
----
+## But here’s what I know
 
 But here’s what I know:  
 
@@ -62,8 +61,6 @@ So maybe this blog won’t just be words.
 Maybe it will become something more—talks, videos, demos.  
 We’ll see.  
 
----
-
-This is the start.  
+**This is the start.  
 Not perfect. Not complete.  
-But real.  
+But real.**
