@@ -14,8 +14,6 @@
 
 # What topics can you expect here?
 * Cloud computing (Azure)
-* Kubernetes & Containerization
 * DevOps
+* Architecture
 * Agile Development
-* .NET, TypeScript
-* Monitoring
