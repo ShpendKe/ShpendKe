@@ -73,6 +73,9 @@ const config: Config = {
     colorMode: {
       respectPrefersColorScheme: true,
     },
+    metadata: [
+      {name: 'keywords', content: 'azure, blog, cloud, devops, architecture, mct, iac, platform engineering'}
+    ],
     navbar: {
       title: 'Cloud Compadre',
       logo: {
