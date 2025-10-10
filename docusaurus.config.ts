@@ -42,6 +42,7 @@ const config: Config = {
       {
         docs: false,
         blog: {
+          routeBasePath: '/', // Serve the blog at the site's root
           showReadingTime: true,
           readingTime: ({content, locale, frontMatter, defaultReadingTime}) =>
             defaultReadingTime({
@@ -79,8 +80,7 @@ const config: Config = {
         src: 'img/logo.svg',
       },
       items: [
-        {to: '/blog', label: 'Blog', position: 'left'},
-        {to: '/blog/authors/shpendkelmendi', label: 'About me', position: 'left'},
+        {to: '/authors/shpendkelmendi', label: 'About me', position: 'left'},
       ],
     },
     footer: {
