@@ -1,5 +1,5 @@
 ---
-title: Starting My Blog Journey
+title: "Speech at Basta Spring: Infrastructure as Code or Click, click, bang - Choose your way"
 authors: shpendkelmendi
 tags: [speech, conference, basta]
 ---

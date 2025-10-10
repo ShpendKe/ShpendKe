@@ -1,5 +1,5 @@
 ---
-title: Starting My Blog Journey
+title: "Speech at Basta Spring: How to establish monitoring in your agile Team"
 authors: shpendkelmendi
 tags: [speech, conference, basta]
 ---

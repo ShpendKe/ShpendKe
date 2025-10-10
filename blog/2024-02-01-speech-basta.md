@@ -1,5 +1,5 @@
 ---
-title: Starting My Blog Journey
+title: "Speech at Basta Spring: Keeping Secrets Secure in Azure: Practical Strategies for Developer Teams"
 authors: shpendkelmendi
 tags: [speech, conference, basta]
 ---
