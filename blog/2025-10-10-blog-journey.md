@@ -24,10 +24,9 @@ So I stopped. Again and again.
 
 ## Here’s the truth
 
-Here’s the truth:  
 I’m still not sure if this will change.  
 
-But I’m shifting my perspective.  
+But I’m **shifting my perspective**.  
 
 It doesn’t matter if the knowledge already exists.  
 What matters is **my experience**.  
@@ -46,10 +45,7 @@ I don’t have the answers (yet).
 
 ## But here’s what I know
 
-But here’s what I know:  
-
-I’m not writing for an audience anymore.  
-I’m writing for myself.  
+**I write for myself — and for people like me.**  
 
 To capture what I’ve learned.  
 To remind myself how I got here.  
