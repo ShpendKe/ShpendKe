@@ -1,5 +1,5 @@
-import {themes as prismThemes} from 'prism-react-renderer';
-import type {Config} from '@docusaurus/types';
+import { themes as prismThemes } from 'prism-react-renderer';
+import type { Config } from '@docusaurus/types';
 import type * as Preset from '@docusaurus/preset-classic';
 
 // This runs in Node.js - Don't use client-side code here (browser APIs, JSX...)
@@ -44,11 +44,11 @@ const config: Config = {
         blog: {
           routeBasePath: '/', // Serve the blog at the site's root
           showReadingTime: true,
-          readingTime: ({content, locale, frontMatter, defaultReadingTime}) =>
+          readingTime: ({ content, locale, frontMatter, defaultReadingTime }) =>
             defaultReadingTime({
               content,
               locale,
-              options: {wordsPerMinute: 300},
+              options: { wordsPerMinute: 300 },
             }),
           feedOptions: {
             type: ['rss', 'atom'],
@@ -63,6 +63,10 @@ const config: Config = {
         theme: {
           customCss: './src/css/custom.css',
         },
+        gtag: {
+          trackingID: 'G-5N88H34Y24',
+          anonymizeIP: true,
+        },
       } satisfies Preset.Options,
     ],
   ],
@@ -74,7 +78,7 @@ const config: Config = {
       respectPrefersColorScheme: true,
     },
     metadata: [
-      {name: 'keywords', content: 'azure, blog, cloud, devops, architecture, mct, iac, platform engineering'}
+      { name: 'keywords', content: 'azure, blog, cloud, devops, architecture, mct, iac, platform engineering' }
     ],
     navbar: {
       title: 'Cloud Compadre',
@@ -83,7 +87,7 @@ const config: Config = {
         src: 'img/logo.svg',
       },
       items: [
-        {to: '/authors/shpendkelmendi', label: 'About me', position: 'left'},
+        { to: '/authors/shpendkelmendi', label: 'About me', position: 'left' },
       ],
     },
     footer: {
