@@ -85,7 +85,7 @@ Let's focus on cost optimization and security:
 ### 💰 Cost Optimization
 
 - **Audit your applications**: Identify all app registrations using the Client Credentials Flow. Check for app registrations with client secrets or certificates in entra external id.  
-- **Cache tokens**: Reuse tokens for their valid lifetime — never fetch on every request. Use a distributed cache in distributed systems.  
+- **Cache tokens**: Reuse tokens for their valid lifetime — never fetch on every request. [Use a distributed cache in distributed systems](https://learn.microsoft.com/en-us/entra/msal/dotnet/acquiring-tokens/web-apps-apis/client-credential-flows#avoid-requesting-new-tokens-on-each-machine-of-a-distributed-service).  
 - **Measure usage**: Check **Sign-Ins Logs -> Service Principals sign-ins** to track token issuance volume.  
 - **Set alerts**: Add cost anomaly detection to catch unexpected spikes early.  
 - **Simulate costs**: Multiply your average token count by $0.001 to predict your future budget impact.
@@ -101,3 +101,5 @@ Let's focus on cost optimization and security:
 This isn’t bad news — it’s a maturity signal.
 For small workloads, the cost is noise.
 For large-scale systems, it’s a wake-up call to build well-architected and consider best practice.  
+
+
