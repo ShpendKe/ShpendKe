@@ -1,9 +1,12 @@
 ---
 authors: shpendkelmendi
 tags: [entra external id, azure, announcement, well architected framework]
+keywords: [entra external id, azure, announcement, well architected framework, pricing, token, access token]
 ---
 
 # Microsoft Just Put a Price Tag on Your M2M Tokens for Entra External ID
+
+<img src={require("./thumbnail.png").default} alt="Microsoft Just Put a Price Tag on Your M2M Tokens for Entra External ID" />
 
 Microsoft just announced pricing for Microsoft Entra External ID M2M Authentication.  
 Starting **November 1, 2025**, every **access token** issued via the **Client Credentials Flow** will cost **$0.001**.
