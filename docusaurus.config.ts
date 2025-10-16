@@ -89,9 +89,9 @@ const config: Config = {
         src: 'img/logo.svg',
       },
       items: [
-        { to: '/tags', label: 'Tags', position: 'left' },
-        { to: '/archive', label: 'Archive', position: 'left' },
-        { to: '/authors/shpendkelmendi', label: 'About me', position: 'left' },
+        { to: '/tags', label: 'Tags', position: 'right' },
+        { to: '/archive', label: 'Archive', position: 'right' },
+        { to: '/authors/shpendkelmendi', label: 'About me', position: 'right' },
       ],
     },
     footer: {
