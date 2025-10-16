@@ -14,6 +14,6 @@
 
 # What topics can you expect here?
 * Cloud computing (Azure)
-* DevOps
+* DevOps (IaC, Monitoring, ...)
+* Platform Engineering
 * Architecture
-* Agile Development
