@@ -18,7 +18,7 @@ It’s time to pay more or less.
 
 <img src={require("./announcement_pricing_token.png").default} alt="Mail with announcement" />
 
-## 🔍 Quick Refresher: What’s M2M?
+## Quick Refresher: What’s M2M?
 
 Machine-to-Machine (M2M) authentication enables **applications to communicate securely** without human interaction.
 
@@ -34,19 +34,19 @@ That’s the **OAuth 2.0 Client Credentials Flow**.
 - A backend service interacting with Microsoft Graph.  
 - A microservice calling another internal API.
 
-## 💸 The Math: Small Cost, Big Scale
+## The Math: Small Cost, Big Scale
 
 At first glance, $0.001 per token sounds trivial.  
 Let’s test that assumption.
 
-### 🧩 Example 1: Low-frequency app
+### Example 1: Low-frequency app
 
 A job runs once nightly and eight times during the day:
 
 - **9 tokens/day × 30 days = 270 tokens/month**  
 - **270 × $0.001 = $0.27/month**
 
-### 🔁 Example 2: High-frequency microservice
+### Example 2: High-frequency microservice
 
 Negligible, right?  
 But scale it up with multiple services, environments (dev/stage/prod), or poor implementation — and it adds up.
@@ -80,12 +80,12 @@ Every call requests a new token.
 If this runs at 10 requests/sec, that’s 36'000 tokens/hour -> *$864/day*
 Design for efficiency — or pay for inefficiency.  
 
-## 🧭 Well-Architected Lens: How to Respond
+## Well-Architected Lens: How to Respond
 
 The **Azure Well-Architected Framework** provides some help.  
 Let's focus on cost optimization and security:
 
-### 💰 Cost Optimization
+### Cost Optimization
 
 - **Audit your applications**: Identify all app registrations using the Client Credentials Flow. Check for app registrations with client secrets or certificates in entra external id.  
 - **Cache tokens**: Reuse tokens for their valid lifetime — never fetch on every request. [Use a distributed cache in distributed systems](https://learn.microsoft.com/en-us/entra/msal/dotnet/acquiring-tokens/web-apps-apis/client-credential-flows#avoid-requesting-new-tokens-on-each-machine-of-a-distributed-service).  
@@ -93,13 +93,13 @@ Let's focus on cost optimization and security:
 - **Set alerts**: Add cost anomaly detection to catch unexpected spikes early.  
 - **Simulate costs**: Multiply your average token count by $0.001 to predict your future budget impact.
 
-### 🔐 Security
+### Security
 
 - **Balance token lifetime vs. security**: Don’t make tokens live forever, but don’t make them expire every 5 minutes either.  
 - **Rotate secrets and certificates** frequently — automation is your friend.  
 - **Prefer Managed Identities**: They remove secrets entirely and provide least-privilege access by design.  
 
-## ✅ Final notes
+## Final notes
 
 This isn’t bad news — it’s a maturity signal.
 For small workloads, the cost is noise.
