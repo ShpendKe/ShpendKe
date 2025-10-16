@@ -5,7 +5,7 @@ import type * as Preset from '@docusaurus/preset-classic';
 // This runs in Node.js - Don't use client-side code here (browser APIs, JSX...)
 
 const config: Config = {
-  title: 'Cloud Compadre',
+  title: 'Cloud Compadre - Donde esta la cloud',
   tagline: 'Donde esta la cloud',
   favicon: 'img/favicon.ico',
 
@@ -59,6 +59,8 @@ const config: Config = {
           onInlineAuthors: 'warn',
           onUntruncatedBlogPosts: 'warn',
           editLocalizedFiles: false,
+          postsPerPage: 3,
+          blogSidebarCount: 0
         },
         theme: {
           customCss: './src/css/custom.css',
@@ -72,7 +74,7 @@ const config: Config = {
   ],
 
   themeConfig: {
-    // Replace with your project's social card
+    // Replace with your project's social card        
     image: 'img/docusaurus-social-card.jpg',
     colorMode: {
       respectPrefersColorScheme: true,
@@ -81,12 +83,14 @@ const config: Config = {
       { name: 'keywords', content: 'azure, blog, cloud, devops, architecture, mct, iac, platform engineering' }
     ],
     navbar: {
-      title: 'Cloud Compadre',
+      title: 'Cloud Compadre - Donde esta la cloud',
       logo: {
-        alt: 'My Site Logo',
+        alt: 'Cloud Compadre',
         src: 'img/logo.svg',
       },
       items: [
+        { to: '/tags', label: 'Tags', position: 'left' },
+        { to: '/archive', label: 'Archive', position: 'left' },
         { to: '/authors/shpendkelmendi', label: 'About me', position: 'left' },
       ],
     },
@@ -97,7 +101,7 @@ const config: Config = {
     prism: {
       theme: prismThemes.github,
       darkTheme: prismThemes.dracula,
-      additionalLanguages: ['csharp'],
+      additionalLanguages: ['csharp','powershell'],
     },
   } satisfies Preset.ThemeConfig,
 };
