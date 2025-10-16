@@ -6,7 +6,7 @@ import type * as Preset from '@docusaurus/preset-classic';
 
 const config: Config = {
   title: 'Cloud Compadre - Donde esta la cloud',
-  tagline: 'Donde esta la cloud',
+  tagline: 'Cloud Compadre - Donde esta la cloud',
   favicon: 'img/favicon.ico',
 
   // Future flags, see https://docusaurus.io/docs/api/docusaurus-config#future
