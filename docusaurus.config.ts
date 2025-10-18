@@ -73,6 +73,13 @@ const config: Config = {
     ],
   ],
 
+  scripts: [
+    {
+      src: 'https://nullitics.com/script.js',
+      async: true,
+    },
+  ],
+
   themeConfig: {
     // Replace with your project's social card        
     image: 'img/docusaurus-social-card.jpg',
