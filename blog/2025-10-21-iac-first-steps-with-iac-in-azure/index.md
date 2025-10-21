@@ -13,7 +13,6 @@ In the cloud world, it’s all about speed, repeatability, and stability. That�
 In this post, you’ll learn:
 
 - What IaC is and why it matters
-- Who can benefit from it
 - How to get started in Azure – even without deep experience
 
 <!-- truncate -->
@@ -44,11 +43,11 @@ Instead of manually configuring resources in the Azure Portal (“ClickOps”), 
 
 Azure provides many ways to start IaC without friction. Here are the key starting points
 
-## 1. From ClickOps to IaC via export
+### 1. From ClickOps to IaC via export
 
 If you’ve been creating resources in the Azure Portal, you can generate IaC directly:
 
-### Via Azure Portal
+#### Via Azure Portal
 
 1. Go to Azure portal
 2. Select your resource group
@@ -57,7 +56,7 @@ If you’ve been creating resources in the Azure Portal, you can generate IaC di
 5. Review and refactor output
 6. Redeploy with What-If (Bicep) or plan (Terraform) to see what would change with your updates
 
-### Via Az CLI (Bicep)
+#### Via Az CLI (Bicep)
 
 1. Install Az CLI
 2. Run following code to export and demcompile ARM Template to bicep: 
@@ -68,7 +67,7 @@ az bicep decompile --file main.json
 3. Review and refactor output
 4. Redeploy with What-If (Bicep) or plan (Terraform) to see what would change with your updates
 
-### Via VS Code (Bicep)
+#### Via VS Code (Bicep)
 
 1. Install VS Code
 2. Install VS Code Extension: Bicep
@@ -83,7 +82,7 @@ az resource list
 
 You can read more about this approach [here](https://learn.microsoft.com/en-us/azure/azure-resource-manager/bicep/visual-studio-code?tabs=azure-cli#insert-resource-command)
 
-### Warnings and errors after decompilation (Bicep)
+#### Warnings and errors after decompilation (Bicep)
 
 You maybe will get some errors and warnings:
 ```
@@ -96,19 +95,20 @@ This indicates where you should focus your attention during review and refactori
 The export feature supports up to 200 resources and may not fully reproduce all configurations. It’s a great learning tool, but not always suitable for production-ready templates.
 :::
 
-## 2. Use built-in templates in Visual Studio Code (Bicep)
+### 2. Use built-in templates in Visual Studio Code (Bicep)
 
 Maybe you want to try it on your own and start from zero. Azure comes with many ready-made templates:
 
 - [Azure Quickstart Templates with over 500 examples](https://learn.microsoft.com/en-us/samples/browse/?expanded=azure&products=azure-resource-manager&languages=bicep)
 - [Available Bicep resource references](https://learn.microsoft.com/en-us/azure/templates/)
-  Here you have definition of the resources and example usages which can help. (e.g. [We])
+  Here you have definition of the resources and example usages which can help. (e.g. [Key Vault](https://learn.microsoft.com/en-us/azure/templates/microsoft.keyvault/vaults?pivots=deployment-language-bicep))
 - Built-in templates in VS Code (Bicep extension installed)
 <img src={require("./template.gif").default} alt="Use built-in template" />
 
 You can take these templates and tweak them step by step.
 
-## 3. Use AVM to be aligned to well architected framework
+### 3. Use AVM to be aligned to well architected framework
+
 Another way to setup your resources is to use Azure verified modules (AVM). AVM use modularity of IaC and provides standardized building-blocks which are designed with defaults aligned to Well Architected Framework (WAF) and simplifies the setup of your infrastructure. Aligned to WAF means you are respecting the 5 pillars security, performance efficiency, cost optimization, reliability and operational excellence, which are important for building production grade solution.  
 AVM can be used for Bicep and Terraform. You can read more about AVM [here](https://learn.microsoft.com/en-us/community/content/azure-verified-modules).  
 
