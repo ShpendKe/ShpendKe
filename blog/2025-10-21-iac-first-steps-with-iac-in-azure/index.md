@@ -118,10 +118,11 @@ You can use AVM by:
 2. Install VS Code Extension: Bicep
 3. Create bicep file (e.g. main.bicep)
 4. Define targetScope (e.g. subscription or resourceGroup)
-5. Enter ```module``` and select the module you want. 
+5. Enter ```module``` and select the module you want. If you don't know what is available check [module index page](https://azure.github.io/Azure-Verified-Modules/indexes/)
 6. Fill required fields
 
 <img src={require("./templateAVM.gif").default} alt="Use built-in template" />
+For more information about this example see [here](https://github.com/Azure/bicep-registry-modules/tree/main/avm/res/storage/storage-account#example-1-deploying-as-a-blob-storage)
 
 ## Final notes
 
@@ -141,6 +142,7 @@ Welcome to the world of IaC. You’ll never want to go back.
 
 ## References
 
-- [AVM Modules](https://azure.github.io/Azure-Verified-Modules/indexes/bicep/)
 - [Intro to AVM](https://learn.microsoft.com/en-us/community/content/azure-verified-modules)
-- [Sample Code](https://learn.microsoft.com/en-us/samples/browse/)
+- [Bicep AVM Modules](https://azure.github.io/Azure-Verified-Modules/indexes/bicep/)
+- [Terraform AVM Modules](https://azure.github.io/Azure-Verified-Modules/indexes/terraform/)
+- [Sample Code for Bicep and Terraform](https://learn.microsoft.com/en-us/samples/browse/?languages=bicep%2Cterraform)
