@@ -1,7 +1,7 @@
 ---
-title: "Speech at Basta Fall: How to establish monitoring in your agile Team"
 authors: shpendkelmendi
 tags: [speech, conference, basta]
+keywords: [Monitoring, Agile Teams, DevOps, Azure Monitoring, Infrastructure as Code (IaC), Continuous Monitoring, Proactive Monitoring, Metrics, Feedback Loops, Observability, Cloud Infrastructure, Automation, Best Practices, Team Responsibility, System Reliability]
 ---
 
 # Speech at Basta Fall 2022: How to establish monitoring in your agile Team
@@ -12,4 +12,4 @@ But how can agile teams establish monitoring in their daily routine? How do you 
 
 In this talk, I will show by example the path to continuous and proactive monitoring in agile teams and where they should pay attention to. For this purpose, the possibilities of Azure Monitoring are used, and Infrastructure as Code is used to set up the selected monitoring solution.
 
-https://basta.net/agile-devops/monitoring-im-agilen-team/
+[Link to conference](https://basta.net/agile-devops/monitoring-im-agilen-team/)
