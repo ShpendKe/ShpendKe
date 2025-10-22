@@ -124,6 +124,12 @@ You can use AVM by:
 <img src={require("./templateAVM.gif").default} alt="Use built-in template" />
 For more information about this example see [here](https://github.com/Azure/bicep-registry-modules/tree/main/avm/res/storage/storage-account#example-1-deploying-as-a-blob-storage)
 
+### 4. AI is your friend
+
+AI is another option, although I haven’t had the best experience with it so far. In my case, it often generated code that didn’t compile and needed a lot of improvements, which was more annoying than helpful.  
+However, based on this [post from John Lokerse](https://johnlokerse.dev/2025/06/30/from-prompt-to-bicep-github-copilot-for-azure-in-action/), it seems to be a valid and promising approach. 
+I’ll give it another try and see how it works out for me.
+
 ## Final notes
 
 Which approach you take depends on your experience level and it’s not an either-or decision. You can combine different approaches as you go.  
@@ -146,3 +152,7 @@ Welcome to the world of IaC. You’ll never want to go back.
 - [Bicep AVM Modules](https://azure.github.io/Azure-Verified-Modules/indexes/bicep/)
 - [Terraform AVM Modules](https://azure.github.io/Azure-Verified-Modules/indexes/terraform/)
 - [Sample Code for Bicep and Terraform](https://learn.microsoft.com/en-us/samples/browse/?languages=bicep%2Cterraform)
+
+## Update 22.10.2025
+
+- Add AI option found from John Lokerse
