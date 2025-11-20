@@ -35,7 +35,10 @@ const config: Config = {
     defaultLocale: 'en',
     locales: ['en'],
   },
-
+  markdown: {
+    mermaid: true,
+  },
+  themes: ['@docusaurus/theme-mermaid'],
   presets: [
     [
       'classic',
@@ -82,6 +85,12 @@ const config: Config = {
     colorMode: {
       respectPrefersColorScheme: true,
     },
+    codeblock: {
+      showGithubLink: true,
+      githubLinkLabel: 'View on GitHub',
+      showRunmeLink: false,
+      runmeLinkLabel: 'Checkout via Runme'
+    },
     metadata: [
       { name: 'keywords', content: 'azure, blog, cloud, devops, architecture, mct, iac, platform engineering' }
     ],
@@ -104,7 +113,7 @@ const config: Config = {
     prism: {
       theme: prismThemes.github,
       darkTheme: prismThemes.dracula,
-      additionalLanguages: ['csharp','powershell'],
+      additionalLanguages: ['csharp', 'powershell'],
     },
   } satisfies Preset.ThemeConfig,
 };
