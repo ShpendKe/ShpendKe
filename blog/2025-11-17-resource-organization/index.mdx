@@ -1,0 +1,153 @@
+---
+authors: shpendkelmendi
+tags: [azure, resource organization, domain driven design, team topologies, cloud adoption framework, well architected framework]
+description: "Step-by-step guide to renewing expired secrets for Azure DevOps service connections and why Workload Identity Federation should be your go-to approach for modern pipeline authentication."
+keywords: [azure, resource organization, domain driven design, team topologies, cloud adoption framework, well architected framework]
+---
+
+import YouTubeEmbed from '@site/src/components/YouTube';
+
+# Practical guide to organizing Azure resources
+
+<img src={require("./thumbnail.png").default} alt="How to organize Azure resources"/>
+
+Organizing Azure resources is one of those rare tasks that sounds straightforward until you actually start doing it.  
+Suddenly you’re trying to balance cost allocation, security boundaries, governance rules, domain ownership, deployment pipelines, and team autonomy. All while the number of services grows faster than your architecture diagram can keep up.
+
+If designing cloud boundaries feels like organizing a city while it’s still being built, that’s because it is.  
+And like any good city, Azure needs structure: districts, buildings, addresses, zoning rules, and a way to understand who owns what.
+Why? Because moving buildings (or Azure resources) is not always easy.
+
+This guide takes a practical look at how to design resource boundaries in Azure—using concepts from Domain-Driven Design (DDD), Team Topologies, CAF, Well-Architected Framework.
+
+{/* truncate */}
+
+## Why this is hard: it's about people and the domain, not just resources
+
+Maybe you have seen the one video:
+
+<YouTubeEmbed videoId="rZ3ETK7-ZM8" title="Select right solution" width="800" height="450" />
+
+Well it's funny, but it is also how some people think about organizing Azure resources.
+Most architecture decisions aren’t purely technical.  
+They reflect how teams collaborate, how business domains interact, and what outcomes the organization values.
+
+When teams ask how they should group Azure resources, they are often really asking:
+
+- How do we ensure ownership is clear? Who is responsible for this workload?
+- How do we track costs reliably?  
+- How do we deploy our workload? What do we deploy together?
+- How do we enforce consistent governance without slowing down?
+- How do we react to changes in requirements and evolution of the architecture?
+
+Understanding these drivers makes resource organization far more meaningful than simply creating a subscription or a resource group "because that’s what the documentation says."
+
+## Approaches for our problem
+
+I see some approaches to solve this problem:
+
+- Bounded context from Domain Driven Design (DDD)
+- Team Topology
+- Azure Resource Grouping Mechanism
+    - Mgmt Group
+    - Subscription
+    - Resource Group
+    - Tags
+    - Service Groups
+
+So let's go through those and how those can help us.
+
+## DDD and team topologies: let your domain shape your cloud solution
+
+One of the biggest challenges in cloud architecture is aligning resource boundaries with **business domains and teams**.  
+
+### Domain-driven design (DDD)
+
+DDD gives you with bounded context a powerful tool to define clear boundaries around different parts of your system.
+Its part of the strategic design patterns in DDD. With bounded contexts, you can encapsulate specific business logic, data models, and workflows within well-defined limits.
+Owned and managed by dedicated teams, bounded contexts reduce complexity and improve maintainability.
+It helps to answer the question: 
+- "What belongs together?"
+- "What can evolve independently?"
+
+A bounded context doesn't mean you have to deploy it separately. It can be a module within a larger application. 
+But when it comes to cloud resources, aligning bounded contexts with Azure boundaries can bring significant benefits:
+- Each bounded context can map to **its own resource group**.  
+- For bigger organizations, a **dedicated subscription** may be required. IMO this is not always necessary. 
+- Independent life-cycles, data ownership, and pipelines align naturally with Azure boundaries.
+
+### Team topologies
+
+Team topologies is another useful framework to consider when organizing Azure resources.
+It was introduced by Matthew Skelton and Manuel Pais in their book "Team Topologies".
+It emphasizes the importance of team structure and interactions in shaping software architecture.
+The four fundamental team types are:
+
+- **Stream-aligned teams:** Own their domain end-to-end -> subscription or dedicated resource group.  
+- **Platform teams:** Provide shared services (networking, identity, monitoring, ...) and reduces cognitive load for teams using it.  -> subscription or/and management group.  
+- **Enabling teams:** Support other teams -> no dedicated boundaries needed but governance needs to be considered.
+- **Complicated subsystem teams:** Specialized workloads that require deep expertise -> isolated subscription.
+
+Aligning Azure structure with team responsibilities reduces friction and clarifies ownership.
+This alone doesn't solve the problem. 
+
+## Azure grouping mechanism
+
+Now that we have an understanding of DDD and Team Topologies, let's look at Azure grouping mechanisms and their purpose.
+Azure provides multiple mechanisms to organize resources, each optimized for different scenarios. 
+
+### Overview of Azure grouping mechanisms
+
+Let's have a look at what is available: 
+
+<img src={require("./grouping.png").default} alt="Azure grouping mechanism overview"/>
+Source: https://learn.microsoft.com/en-us/azure/governance/service-groups/overview
+
+| **Mechanism**                 | **Description**                                                                                                                                                                                                                           |
+|-------------------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| **Management groups**         | Logical containers that organize management groups and subscriptions into a hierarchy for unified policy and access management. Policies and RBAC permissions applied at this level inherit down to all subscriptions and resources below. |
+| **Subscriptions**             | Logical container linked to a credit card. Each subscription has its own limits, quotas, and provides isolation between different parts of your organization. |
+| **Resource groups**           | Logical containers that hold related Azure resources. Goal is to group resources the same lifecycle: deploy, update, and delete together.  |
+| **Azure Service Groups**      | Logical container kept in tenant. Allows flexible grouping of resources across subscriptions, resource groups and resources. Currently in public preview. |
+| **Tags**                      | Key-value pairs of metadata that can be applied to resources, resource groups and subscriptions. Tags do not inherit automatically. You have to enforce this by policy or tagged individually at each level. |
+
+### Comparison of Azure grouping mechanisms
+First let's understand the different grouping mechanisms in Azure:
+
+# Azure Resource Manager Groupings - Scenario Comparison
+
+| Scenario | Resource Group | Subscription | Management Group | Service Group | Tags |
+|----------|---------------|--------------|------------------|---------------|------|
+| Can it contain and organize resources in a hierarchy? | Yes (contains resources) | Yes (contains resource groups) | Yes (contains subscriptions, management groups) | Yes (contains resources, resource groups, or subscriptions but only within Azure Service Group) | No |
+| Can resources from different subscriptions be grouped together? | No | No | Yes | Yes | Yes** |
+| Can the same resource belong to multiple groups of this type? | No | No | No | Yes | Yes |
+| Can policies be enforced on this grouping? | Yes | Yes | Yes | No | Yes*** |
+| Are policies inherited downward in the hierarchy? | Yes (to resources) | Yes (to resource groups and below) | Yes (to subscriptions and below) | No | No |
+| Can role-based access control (RBAC) be applied? | Yes | Yes | Yes | Yes (Service Group only) | No |
+| Are RBAC permissions inherited downward in the hierarchy? | Yes (to resources) | Yes (to resource groups and resources) | Yes (to subscriptions and below) | Partial (only to child Service Groups, not to member resources) | No |
+| Can it be used for cost management and billing? | Yes | Yes | Yes | No | Yes **** |
+| Can it be used for different environments (prod, test, dev)? | Yes | Yes | Yes | No | Yes |
+| Can it be used for ownership tracking? | Yes | Yes | Yes | No | Yes **** |
+
+\* Applying a policy will enforce it to all members within the scope. For example, on a Resource Group it only applies to the resources under it.  
+** Tags can be applied across scopes and are added to resources individually. Azure Policy has built-in policies that can help manage tags.  
+*** Azure tags can be used as criteria within Azure Policy to apply policies to certain resources. Azure tags are subject to limitations.  
+**** To avoid inconsistencies, it's recommended to apply tags from the beginning and enforce them via policies. If you are already in this situation, you have different options: 
+    1. Notify subscription/resource group owners to apply tags. 
+    2. Notify users with access to subscriptions/resource groups to apply tags.
+    3. Stop/disable resources without required tags (not recommended for production workloads and only after clarified with management).
+
+## Conclusion
+
+Resource organization in Azure is not a one-size-fits-all task.
+It requires a thoughtful approach that considers business domains, team structures, governance needs, and operational practices.
+By leveraging principles from DDD and Team Topologies, and utilizing Azure's grouping mechanisms effectively, you can create a resource organization strategy that aligns with your organization's goals and workflows.
+
+## Further readings
+- [Organize your Azure resources effectively](https://learn.microsoft.com/en-us/azure/cloud-adoption-framework/ready/azure-setup-guide/organize-resources)
+- [Quick setup subscription](https://learn.microsoft.com/en-us/azure/cloud-adoption-framework/ready/azure-setup-guide/initial-subscriptions)
+- [Manage application development environments in Azure landing zones](https://learn.microsoft.com/en-us/azure/cloud-adoption-framework/ready/landing-zone/design-area/management-application-environments#environments-subscriptions-and-management-groups)
+- [Team Topologies](https://martinfowler.com/bliki/TeamTopologies.html)
+- [Bounded Context pattern in DDD](https://martinfowler.com/bliki/BoundedContext.html)
+- [Service Groups in Azure](https://learn.microsoft.com/en-us/azure/governance/service-groups/overview)
+- [Use tags to organize your Azure resources](https://learn.microsoft.com/en-us/azure/azure-resource-manager/management/tag-resources?source=recommendations)
