@@ -22,7 +22,7 @@ What are the options? Let's explore them.
 
 <!-- truncate -->
 
-## Using Bicep template
+## Using Bicep
 
 You can create a simple Bicep template to create a budget at subscription level with email notification.
 Here is a sample Bicep code:
@@ -114,7 +114,7 @@ az consumption budget create-with-rg --amount 100 --budget-name TestCLIBudget -g
 But be careful: it's in preview and might change in the future.
 Another challenge with this approach is readability and maintainability of the code.
 
-## Using Azure Portal to create budget
+## Using Azure Portal
 
 You can also create a budget directly from the Azure Portal. Follow these steps:
 
