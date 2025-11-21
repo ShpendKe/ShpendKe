@@ -83,7 +83,9 @@ You will be notified via email to the specified recipients until end of date (be
 
 You can deploy this Bicep template using the Azure CLI with the following command:
 
-`az deployment sub create -l switzerlandnorth -f budget.bicep -p amount=100 emailRecipients="['YOUR-EMAIL@ADDRESS.COM']"`
+```bash
+az deployment sub create -l switzerlandnorth -f budget.bicep -p amount=100 emailRecipients="['YOUR-EMAIL@ADDRESS.COM']"
+```
 
 After successful deployment, you should see the budget in the Azure portal like this:
 <img src={require("./BudgetInPortal.png").default} alt="Budget set after bicep successful execution"/>
