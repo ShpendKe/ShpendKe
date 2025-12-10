@@ -71,7 +71,6 @@ const config: Config = {
       } satisfies Preset.Options,
     ],
   ],
-
   scripts: [
     {
       src: 'https://nullitics.com/script.js',
@@ -115,7 +114,7 @@ const config: Config = {
     prism: {
       theme: prismThemes.github,
       darkTheme: prismThemes.dracula,
-      additionalLanguages: ['csharp', 'powershell', 'bicep', 'bash'],
+      additionalLanguages: ['csharp', 'powershell', 'bicep', 'bash', 'json'],
     },
   } satisfies Preset.ThemeConfig,
 };

@@ -1,11 +1,11 @@
 ---
 authors: shpendkelmendi
-tags: [bicep, azure cli, entra id, IaC]
-description: "Learn how to deploy your workload across multiple Entra ID tenants using multitenant app registrations and service principals"
-keywords: [azure cli, IaC, multitenant, entra id, entra external id, azure devops]
+tags: [bicep, azure cli, IaC, entra id, multi tenant]
+description: "Learn how to deploy your workload across multiple Entra ID tenants using multi-tenant app registrations and service principals"
+keywords: [azure cli, IaC, multi-tenant, entra id, entra external id, azure devops]
 ---
 
-# How to deploy across multiple Azure Tenants with Multitenant App Registrations
+# How to deploy across multiple Azure Tenants with multi-tenant App Registrations
 
 <img src={require("./thumbnail.png").default} alt="Deploy to multiple Entra ID tenants with Azure DevOps" />
 
@@ -31,9 +31,9 @@ PS: I can really recommend to keep them apart.
 
 <img src={require("./multitenant_deploy.png").default} alt="Deploy to multiple Entra ID tenants with Azure DevOps" />
 
-The solution is to use a **multitenant app registration** that can authenticate across multiple Entra ID tenants. Here's how it works:
+The solution is to use a **multi-tenant app registration** that can authenticate across multiple Entra ID tenants. Here's how it works:
 
-1. Create a multitenant app registration in your primary tenant (home tenant)
+1. Create a multi-tenant app registration in your primary tenant (home tenant)
 2. Create service principals in each target tenant (Non-Prod, Prod)
 3. Assign appropriate permissions to each service principal
 4. Use the same app registration credentials to deploy to all tenants
@@ -48,7 +48,7 @@ This approach centralizes authentication while distributing authorization, givin
 - Azure CLI installed
 - Access to Azure DevOps
 
-### 1. Create and configure multitenant app registration
+### 1. Create and configure multi-tenant app registration
 
 First, create a service connection in Azure DevOps:
 
@@ -58,12 +58,12 @@ First, create a service connection in Azure DevOps:
 3. **Recommendation:** Use Workload Identity Federation for better security
 4. Click on "Manage App Registration" to open the Azure Portal
 
-**Configure multitenant support:**
+**Configure multi-tenant support:**
 
 **Option A - Using Azure Portal UI:**
 1. In the app registration, go to: Manage → Authentication (Preview)
 2. Under Settings → Supported account types
-3. Select: "Accounts in any organizational directory (Any Microsoft Entra ID tenant - Multitenant)"
+3. Select: "Accounts in any organizational directory (Any Microsoft Entra ID tenant - multi-tenant)"
 4. Click "Save"
 
 **Option B - Using Azure CLI:**
@@ -74,13 +74,13 @@ az login
 # Get your app registration details from the Azure Portal Overview page
 $clientIdFromHomeTenant = "{YOUR_APP_CLIENT_ID_IN_HOME_TENANT}"
 
-# Update the app registration to multitenant
+# Update the app registration to multi-tenant
 az ad app update --id $clientIdFromHomeTenant --sign-in-audience AzureADMultipleOrgs
 ```
 
 ### 2. Create service principal in target tenant(s)
 
-For each tenant where you want to deploy, you need to create a service principal that represents your multitenant app:
+For each tenant where you want to deploy, you need to create a service principal that represents your multi-tenant app:
 
 ```powershell
 # Define your target tenant and the app client ID from Tenant X
@@ -93,7 +93,7 @@ az login -t $tenantXId --allow-no-subscriptions
 az ad sp create --id $clientIdFromHomeTenant
 ```
 
-**Important:** This creates an enterprise application in Tenant B, not a full app registration. The app registration always lives in Tenant A. The enterprise application in Tenant B is essentially a "pointer" to the app in Tenant A.
+**Important:** This creates an enterprise application in tenant X, not a full app registration. The app registration always lives in home tenant. The enterprise application in Tenant X is essentially a "pointer" to the app in home tenant.
 
 The result will look similar to the following extract:
 ```json
@@ -120,6 +120,30 @@ You can see that the information are taken from the App Registration in home ten
 
 If your deployment needs to create or manage Entra ID resources (like app registrations), you need to assign appropriate directory roles:
 
+**Note:** Some directory roles need to be activated before they can be assigned. Here's how to check and activate if needed:
+
+```powershell
+
+# Check if the role is already activated
+$activatedRole = az rest --method GET `
+  --url "https://graph.microsoft.com/v1.0/directoryRoles?`$filter=roleTemplateId eq '$roleId'" `
+  | ConvertFrom-Json
+
+if ($activatedRole.value.Count -eq 0) {
+  Write-Host "Activating role..."
+    
+  $activateBody = @"
+    { "roleTemplateId": "$roleId" }
+"@
+
+  $activatedRole = az rest --method POST `
+    --headers "Content-Type=application/json" `
+    --url "https://graph.microsoft.com/v1.0/directoryRoles" `
+    --body $activateBody | ConvertFrom-Json
+}
+```
+
+Now you can assign the entra role to your service principal:
 ```powershell
 # Login to the target tenant
 $tenantXId = '{YOUR_APP_REG_IN_TENANT_X}'
@@ -154,45 +178,20 @@ az rest --method POST `
 Remove-Item body.json
 ```
 
-**Note:** Some directory roles need to be activated before they can be assigned. Here's how to check and activate if needed:
-
-```powershell
-
-# Check if the role is already activated
-$activatedRole = az rest --method GET `
-  --url "https://graph.microsoft.com/v1.0/directoryRoles?`$filter=roleTemplateId eq '$roleId'" `
-  | ConvertFrom-Json
-
-if ($activatedRole.value.Count -eq 0) {
-  Write-Host "Activating role..."
-    
-  $activateBody = @"
-    { "roleTemplateId": "$roleId" }
-"@
-
-  $activatedRole = az rest --method POST `
-    --headers "Content-Type=application/json" `
-    --url "https://graph.microsoft.com/v1.0/directoryRoles" `
-    --body $activateBody | ConvertFrom-Json
-}
-```
-
 ### 4. Assign Azure RBAC roles (optional)
 
 If you need to deploy Azure resources, assign appropriate Azure roles at the subscription or resource group level:
 
 ```powershell
-# Login to target tenant with a subscription
-az login -t $tenantXId --allow-no-subscription
-
-# Set the subscription context
+# Login and set the subscription context
+az login
 $subscriptionId="{YOUR_SUBSCRIPTION_ID}"
 az account set --subscription $subscriptionId
 
 # Assign Contributor role at subscription level
-az role assignment create \
-  --assignee $clientIdFromHomeTenant \
-  --role "Contributor" \
+az role assignment create `
+  --assignee $clientIdFromHomeTenant `
+  --role "Contributor" `
   --scope "/subscriptions/$subscriptionId"
 ```
 
@@ -227,7 +226,7 @@ steps:
 
 ## Conclusion
 
-Deploying to multiple Entra ID tenants doesn't have to be complicated. By leveraging multitenant app registrations, you can:
+Deploying to multiple Entra ID tenants doesn't have to be complicated. By leveraging multi-tenant app registrations, you can:
 
 - Maintain a single app registration in your primary tenant
 - Deploy to as many target tenants as needed
@@ -237,7 +236,7 @@ The key is understanding that the app registration lives in one place (home tena
 
 **Key takeaways:**
 
-1. Convert your app registration to multitenant
+1. Convert your app registration to multi-tenant
 2. Create service principals in each target tenant
 3. Assign appropriate Entra ID and Azure roles to your service principal per tenant
 4. Use the same credentials with different tenant IDs in your pipelines
