@@ -223,7 +223,7 @@ steps:
         bicep local-deploy ./bicep/secret-rotation/main.bicepparam
 ```
 
-For my use case I used (local-deploy (Experimental))[https://github.com/Azure/bicep/blob/main/docs/experimental/local-deploy.md]. This allows me run the secret-rotator.
+For my use case I used [local-deploy (Experimental)](https://github.com/Azure/bicep/blob/main/docs/experimental/local-deploy.md). This allows me run the secret-rotator.
 
 ## Conclusion
 
