@@ -136,6 +136,7 @@ if ($activatedRole.value.Count -eq 0) {
     { "roleTemplateId": "$roleId" }
 "@
 
+  # Activate role because not active yet
   $activatedRole = az rest --method POST `
     --headers "Content-Type=application/json" `
     --url "https://graph.microsoft.com/v1.0/directoryRoles" `
@@ -156,7 +157,7 @@ $spObjectId = $(az ad sp list --display-name $appName --query "[0].id" -o tsv)
 # Get the role definition ID (example: Application Administrator)
 $roleId = $(az rest --method GET --url 'https://graph.microsoft.com/v1.0/directoryRoleTemplates' --query "value[?displayName=='Application Administrator'].id" -o tsv)
 
-# Prepare the role assignment request
+# Prepare the role assignment request with tenant scope
 $bodyContent = @{
   "@odata.type" = "#microsoft.graph.unifiedRoleAssignment"
   "roleDefinitionId" = $roleId
@@ -213,16 +214,16 @@ steps:
   ...
 
   - task: AzureCLI@2
-    displayName: 'deploy workload app X'
+    displayName: 'rotate secrets'
     inputs:
       azureSubscription: 'YOUR_SERVICE_CONNECTION_NAME'
-      scriptType: 'bash'
+      scriptType: "pscore"
       scriptLocation: 'inlineScript'
-      inlineScript: |        
-        az deployment sub create `
-          --location westeurope `
-          --template-file main.bicep
+      inlineScript: |
+        bicep local-deploy ./bicep/secret-rotation/main.bicepparam
 ```
+
+For my use case I used (local-deploy (Experimental))[https://github.com/Azure/bicep/blob/main/docs/experimental/local-deploy.md]. This allows me run the secret-rotator.
 
 ## Conclusion
 
