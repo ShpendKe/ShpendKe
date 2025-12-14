@@ -5,7 +5,7 @@ description: "Learn how to deploy your workload across multiple Entra ID tenants
 keywords: [azure cli, IaC, multi-tenant, entra id, entra external id, azure devops]
 ---
 
-# How to deploy across multiple Azure Tenants with multi-tenant App Registrations
+# How to deploy across multiple Entra ID Tenants with multi-tenant App Registrations
 
 <img src={require("./thumbnail.png").default} alt="Deploy to multiple Entra ID tenants with Azure DevOps" />
 
