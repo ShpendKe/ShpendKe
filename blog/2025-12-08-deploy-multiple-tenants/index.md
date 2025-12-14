@@ -198,7 +198,8 @@ az role assignment create `
 
 ### 5. Use in Azure DevOps pipelines
 
-Now you can use the same service connection to deploy to multiple tenants by specifying the target tenant ID:
+Now you can use the same service connection to deploy to multiple tenants. In my secret rotation project I used `DefaultAzureCredential`. It uses the tenant id passed in bicepparam file.  
+Secret rotation is implemented based on [local-deploy (Experimental)](https://github.com/Azure/bicep/blob/main/docs/experimental/local-deploy.md). This allows me to run the secret-rotator on a monthly basis and create or rotate the secrets.
 
 ```yaml
 trigger:
@@ -222,8 +223,6 @@ steps:
       inlineScript: |
         bicep local-deploy ./bicep/secret-rotation/main.bicepparam
 ```
-
-For my use case I used [local-deploy (Experimental)](https://github.com/Azure/bicep/blob/main/docs/experimental/local-deploy.md). This allows me run the secret-rotator.
 
 ## Conclusion
 
