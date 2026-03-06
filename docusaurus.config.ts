@@ -45,6 +45,7 @@ const config: Config = {
       {
         docs: false,
         blog: {
+          authorsMapPath: 'authors.json',
           routeBasePath: '/', // Serve the blog at the site's root
           showReadingTime: true,
           readingTime: ({ content, locale, frontMatter, defaultReadingTime }) =>

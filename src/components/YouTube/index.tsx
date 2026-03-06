@@ -12,6 +12,7 @@ function YouTubeEmbed({ videoId, title = 'YouTube video player', width = 560, he
         height: 0,
         overflow: 'hidden',
         maxWidth: '100%',
+        marginBottom: '1.5rem', // Add some spacing below the video
         backgroundColor: 'black', // Placeholder background
       }}
     >

@@ -1,0 +1,25 @@
+{
+  "shpendkelmendi": {
+    "name": "Shpend Kelmendi",
+    "title": "Software Engineer & Architect",
+    "description": "Shpend Kelmendi is a Software Engineer and Cloud Architect at bbv Software Services AG. He leads the Cloud Community. His playground: Azure, DevOps, and cloud architecture. As a Microsoft Certified Trainer (MCT), he shares what he learns and helps others succeed in the cloud.",
+    "url": "https://www.linkedin.com/in/shpendke/",
+    "image": "",
+    "imageURL": "/img/authors/ShpendKelmendi.jpg",
+    "page": true,
+    "socials": {
+      "linkedin": "shpendke",
+      "github": "shpendke",
+      "sessionize": "https://sessionize.com/shpendke"
+    }
+  },  
+  "joachimjabs": {
+    "name": "Joachim Jabs",
+    "title": "Senior DevOps Engineer & Cloud Architect",
+    "description": "Senior DevOps Engineer & Cloud Architect at bbv Software Services AG. With a passion for cloud technologies, Joachim specializes in designing and implementing scalable solutions. He is an advocate for DevOps practices and enjoys sharing his knowledge through blogging and speaking engagements.",
+    "url": "https://www.linkedin.com/in/shpendke/",
+    "image": "",
+    "imageURL": "/img/authors/JoachimJabs.jpg",
+    "page": true
+  }
+}
