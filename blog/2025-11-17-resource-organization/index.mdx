@@ -1,15 +1,13 @@
 ---
+title: Practical guide to organizing Azure resources
 authors: shpendkelmendi
 tags: [azure, resource organization, domain driven design, team topologies, cloud adoption framework, well architected framework]
 description: "Step-by-step guide to renewing expired secrets for Azure DevOps service connections and why Workload Identity Federation should be your go-to approach for modern pipeline authentication."
 keywords: [azure, resource organization, domain driven design, team topologies, cloud adoption framework, well architected framework]
+image: ./images/cover.png
 ---
 
 import YouTubeEmbed from '@site/src/components/YouTube';
-
-# Practical guide to organizing Azure resources
-
-<img src={require("./thumbnail.png").default} alt="How to organize Azure resources"/>
 
 Organizing Azure resources is one of those rare tasks that sounds straightforward until you actually start doing it.  
 Suddenly you’re trying to balance cost allocation, security boundaries, governance rules, domain ownership, deployment pipelines, and team autonomy. All while the number of services grows faster than your architecture diagram can keep up.
@@ -101,7 +99,7 @@ Azure provides multiple mechanisms to organize resources, each optimized for dif
 
 Let's have a look at what is available: 
 
-<img src={require("./grouping.png").default} alt="Azure grouping mechanism overview"/>
+<img src={require("./images/grouping.png").default} alt="Azure grouping mechanism overview"/>
 Source: https://learn.microsoft.com/en-us/azure/governance/service-groups/overview
 
 | **Mechanism**                 | **Description**                                                                                                                                                                                                                           |

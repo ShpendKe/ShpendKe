@@ -4,7 +4,6 @@ import Layout from '@theme/Layout';
 import BlogSidebar from '@theme/BlogSidebar';
 
 import type { Props } from '@theme/BlogLayout';
-import BlogHeader from '@site/src/components/BlogHeader';
 
 export default function BlogLayout(props: Props): ReactNode {
   const { sidebar, toc, children, ...layoutProps } = props;
@@ -12,8 +11,7 @@ export default function BlogLayout(props: Props): ReactNode {
 
   return (
     <Layout {...layoutProps}>
-      <BlogHeader/>
-      <div className="container margin-vert--lg">
+      <div className="container margin-vert--md">
         <div className="row">
           <BlogSidebar sidebar={sidebar} />
           <main

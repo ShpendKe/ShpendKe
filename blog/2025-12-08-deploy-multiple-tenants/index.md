@@ -1,14 +1,11 @@
 ---
+title: How to deploy across multiple Entra ID Tenants with multi-tenant App Registrations
 authors: shpendkelmendi
 tags: [bicep, azure cli, IaC, entra id, multi tenant]
 description: "Learn how to deploy your workload across multiple Entra ID tenants using multi-tenant app registrations and service principals"
 keywords: [azure cli, IaC, multi-tenant, entra id, entra external id, azure devops]
+image: ./images/cover.png
 ---
-
-# How to deploy across multiple Entra ID Tenants with multi-tenant App Registrations
-
-<img src={require("./thumbnail.png").default} alt="Deploy to multiple Entra ID tenants with Azure DevOps" />
-
 You have to deploy your workload.  
 You follow best practice and provision your workload per IaC and CI/CD pipelines.
 Now that sounds easy.
@@ -29,7 +26,7 @@ PS: I can really recommend to keep them apart.
 
 ## Solution (I used)
 
-<img src={require("./multitenant_deploy.png").default} alt="Deploy to multiple Entra ID tenants with Azure DevOps" />
+<img src={require("./images/multitenant_deploy.png").default} alt="Deploy to multiple Entra ID tenants with Azure DevOps" />
 
 The solution is to use a **multi-tenant app registration** that can authenticate across multiple Entra ID tenants. Here's how it works:
 

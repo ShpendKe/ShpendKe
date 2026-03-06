@@ -1,11 +1,11 @@
 ---
+title: Fix expired secrets in Azure DevOps Service Connections
 authors: shpendkelmendi
 tags: [azure, azure devops, service connection, workload identity federation, well architected framework]
 description: "Step-by-step guide to renewing expired secrets for Azure DevOps service connections and why Workload Identity Federation should be your go-to approach for modern pipeline authentication."
 keywords: ["azure devops", "service connection", "app registration", "secret rotation", "secret expiration", "workload identity federation", "azure pipelines", "certificate management", "azure portal", "devops security", "azure authentication", "service principal", "pipeline tasks", "AzureFileCopy", "azure ad", "credential management", "automated deployment", "ci cd security", well architected framework]
+image: ./images/appRegWithSecret.png
 ---
-
-# Fix expired secrets in Azure DevOps Service Connections
 
 Workload Identity Federation is the recommended approach for Service Connection.
 So why would I use the old approach with an app registration where I need to rotate the secret by myself?
@@ -20,7 +20,7 @@ Let's check the steps to fix it.
 
 ## 1. Problem
 
-<img src={require("./appRegWithSecret.png").default} alt="Service Connection with App Registration and Secret"/>
+<img src={require("./images/appRegWithSecret.png").default} alt="Service Connection with App Registration and Secret"/>
 
 You have created a service connection with app registration (automatic).  
 Your secret expired.  
@@ -46,7 +46,7 @@ You don't know how to fix it.
 
 You may need to repeat steps 8-13 if verification does not succeed the first time.
 
-<img src={require("./RenewSecret.gif").default} alt="Steps to renew secrets for service connection"/>
+<img src={require("./images/RenewSecret.gif").default} alt="Steps to renew secrets for service connection"/>
 
 ### 2.2 Use Workload Identity Federation
 

@@ -1,13 +1,11 @@
 ---
+title: "When the cloud has a cold: Lessons in resilience"
 authors: shpendkelmendi
 tags: [cloud, resilience, azure, aws, architecture, well-architected-framework, reliability, devops, postmortem, risk-storming, multi-cloud]
 description: "What recent AWS and Azure outages can teach us about resilience, trade-offs, and the real meaning of shared responsibility in the cloud."
 keywords: ["cloud architecture", "azure well-architected framework", "resilience", "aws outage", "azure front door", "shared responsibility", "multi-cloud", "risk storming", "postmortem", "devops", "reliability engineering"]
+image: ./images/cover.png
 ---
-
-# When the cloud has a cold: Lessons in resilience
-
-<img src={require("./thumbnail.png").default} alt="Cloud is down: Building Resilient Systems"/>
 
 **October 9th** - Azure Front Door takes a nap. Traffic reroutes, dashboards go red, and half the internet suddenly learns what "global edge dependency" really means.  
 
@@ -50,7 +48,7 @@ Just because your app runs in the cloud doesn't mean it's automatically secure, 
 Cloud providers like Azure and AWS take care of the infrastructure, but [**resilience is a shared responsibility**](https://learn.microsoft.com/en-us/azure/reliability/concept-shared-responsibility).  
 They'll keep the lights on - but how your app reacts when the lights flicker? That's on you.  
 
-<img src={require("./shared-responsibility-model.png").default} alt="Azure Front Door Disruption: Building Resilient Systems"/>
+<img src={require("./images/shared-responsibility-model.png").default} alt="Azure Front Door Disruption: Building Resilient Systems"/>
 
 As you can see in the image above, Microsoft takes responsibility for the **core platform** and additionally provides **resilience capabilities** when the right components are selected (e.g. Zone-Redundancy, Automatic Backup, ...).  
 

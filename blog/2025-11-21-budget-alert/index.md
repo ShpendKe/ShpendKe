@@ -1,13 +1,11 @@
 ---
+title: Quick Azure Cost Management - Budget and Notifications with Bicep and alternatives
 authors: shpendkelmendi
 tags: [azure, well architected framework, cost management, azure budget, bicep, azure cli, IaC]
 description: "Step-by-step guide to renewing expired secrets for Azure DevOps service connections and why Workload Identity Federation should be your go-to approach for modern pipeline authentication."
 keywords: [well architected framework, cost management, azure budget, bicep, azure cli, IaC]
+image: ./images/cover.png
 ---
-
-# Quick Azure Cost Management: Budget and Notifications with Bicep and alternatives
-
-<img src={require("./thumbnail.png").default} alt="Quick Azure Cost Management: Budget and Notifications with Bicep and alternatives" />
 
 Managing costs in the cloud is crucial to avoid unexpected expenses.  
 How many times have I read "Azure just charged me 1k dollars because of a misconfiguration".  
@@ -88,7 +86,7 @@ az deployment sub create -l switzerlandnorth -f budget.bicep -p amount=100 email
 ```
 
 After successful deployment, you should see the budget in the Azure portal like this:
-<img src={require("./BudgetInPortal.png").default} alt="Budget set after bicep successful execution"/>
+<img src={require("./images/BudgetInPortal.png").default} alt="Budget set after bicep successful execution"/>
 
 ## Using AZ CLI
 

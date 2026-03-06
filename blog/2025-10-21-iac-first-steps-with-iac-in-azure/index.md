@@ -1,12 +1,10 @@
 ---
+title: Infastructure as Code (IaC) - Your First Steps with IaC in Azure
 authors: shpendkelmendi
 tags: [iac, azure, well architected framework, bicep, terraform, guides]
 keywords: [infrastructure as code, iac, azure iac, azure bicep, bicep templates, terraform azure, pulumi azure, farmer fsharp, azure automation, devops azure, cloud automation, cloud infrastructure, azure infrastructure as code, iac tutorial, iac for beginners, clickops to iac, what-if bicep, iac benefits, iac tools, azure quickstart templates, github copilot azure, ai for iac, azure devops, cloud engineering, cloud deployment automation, infrastructure automation, azure architecture, cloud provisioning, bicep registry, azure templates, azure cloud setup, iac best practices, azure cloud automation, learn iac, how to start with iac, iac vs clickops]
+image: ./images/cover.png
 ---
-
-# Infastructure as Code (IaC) - Your First Steps with IaC in Azure
-
-<img src={require("./thumbnail.png").default} alt="Infastructure as Code (IaC) - Your First Steps with IaC in Azure" />
 
 In the cloud world, it’s all about speed, repeatability, and stability. That’s where Infrastructure as Code (IaC) comes in. Many imagine YAML files or PowerShell scripts, but the truth is: Anyone can start with IaC today.
 
@@ -23,7 +21,7 @@ In this post, you’ll learn:
 
 Instead of manually configuring resources in the Azure Portal (“ClickOps”), you describe your infrastructure in code that can be **automatically deployed, versioned, and reused**.
 
-<img src={require("./benefits.png").default} alt="Benefits of IaC" />
+<img src={require("./images/benefits.png").default} alt="Benefits of IaC" />
 
 ### Key benefits of IaC
 
@@ -103,7 +101,7 @@ Maybe you want to try it on your own and start from zero. Azure comes with many 
 - [Available Bicep resource references](https://learn.microsoft.com/en-us/azure/templates/)
   Here you have definition of the resources and example usages which can help. (e.g. [Key Vault](https://learn.microsoft.com/en-us/azure/templates/microsoft.keyvault/vaults?pivots=deployment-language-bicep))
 - Built-in templates in VS Code (Bicep extension installed)
-<img src={require("./template.gif").default} alt="Use built-in template" />
+<img src={require("./images/template.gif").default} alt="Use built-in template" />
 
 You can take these templates and tweak them step by step.
 
@@ -121,7 +119,7 @@ You can use AVM by:
 5. Enter ```module``` and select the module you want. If you don't know what is available check [module index page](https://azure.github.io/Azure-Verified-Modules/indexes/)
 6. Fill required fields
 
-<img src={require("./templateAVM.gif").default} alt="Use built-in template" />
+<img src={require("./images/templateAVM.gif").default} alt="Use built-in template" />
 For more information about this example see [here](https://github.com/Azure/bicep-registry-modules/tree/main/avm/res/storage/storage-account#example-1-deploying-as-a-blob-storage)
 
 ### 4. AI is your friend

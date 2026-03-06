@@ -1,12 +1,10 @@
 ---
+title: Preparation and execution of Microsoft Certifications – How I do it
 authors: shpendkelmendi
 tags: [mct, azure, learning, certificate]
 keywords: [Microsoft certification preparation, Microsoft Learn study tips, Azure certification guide, Microsoft exam strategy, How to pass Microsoft certification, MeasureUp practice exams, Hands-on labs for Microsoft certifications, Cloud certification journey, Microsoft certification at home, Microsoft exam tips and tricks, Microsoft documentation learning, Certification failure and retry strategy, Tech exam mindset, Microsoft Certified Azure Administrator, Microsoft Certified Azure Architect]
+image: ./images/cover.png
 ---
-
-# Preparation and execution of Microsoft Certifications – How I do it
-
-<img src={require("./thumbnail.png").default} alt="Preparation and execution of Microsoft Certifications – How I do it" />
 
 When it comes to Microsoft certifications, it’s not just about studying.  
 It’s about preparing the right way, using the right tools, and staying calm during the exam.  

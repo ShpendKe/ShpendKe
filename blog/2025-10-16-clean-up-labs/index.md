@@ -1,12 +1,11 @@
 ---
+title: How to clean up Azure resources after you finished your labs
 authors: shpendkelmendi
 tags: [labs, mct, azure, clean up, cost, learning]
 keywords: [labs, mct, azure, clean up, cost, learning]
+image: ./images/cover.png
+description: "Easy cleanup of Azure resources after your labs. Use Azure CLI to delete resource groups and avoid unexpected costs. Step-by-step guide included."
 ---
-
-# How to clean up Azure resources after you finished your labs
-
-<img src={require("./thumbnail.png").default} alt="How to clean up Azure resources after you finished your labs" />
 
 You just finished your Azure lab. You spun up VMs, storage accounts, databases, maybe even a Kubernetes cluster. You learned a lot. But now… your subscription is cluttered, ticking costs, and slowly turning into a monster.  
 

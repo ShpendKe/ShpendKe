@@ -1,12 +1,11 @@
 ---
+title: Microsoft Just Put a Price Tag on Your M2M Tokens for Entra External ID
+description: Microsoft just announced pricing for Microsoft Entra External ID M2M Authentication. Starting **November 1, 2025**, every **access token** issued via the **Client Credentials Flow** will cost **$0.001**. The feature isn’t going away — it’s simply entering its “production maturity” phase. It’s time to pay more or less.
 authors: shpendkelmendi
 tags: [entra external id, azure, announcement, well architected framework]
 keywords: [entra external id, azure, announcement, well architected framework, pricing, token, access token]
+image: ./images/cover.png
 ---
-
-# Microsoft Just Put a Price Tag on Your M2M Tokens for Entra External ID
-
-<img src={require("./thumbnail.png").default} alt="Microsoft Just Put a Price Tag on Your M2M Tokens for Entra External ID" />
 
 Microsoft just announced pricing for Microsoft Entra External ID M2M Authentication.  
 Starting **November 1, 2025**, every **access token** issued via the **Client Credentials Flow** will cost **$0.001**.
@@ -16,7 +15,7 @@ It’s time to pay more or less.
 
 <!-- truncate -->
 
-<img src={require("./announcement_pricing_token.png").default} alt="Mail with announcement" />
+<img src={require("./images/announcement_pricing_token.png").default} alt="Mail with announcement" />
 
 ## Quick Refresher: What’s M2M?
 
@@ -64,7 +63,6 @@ public class BadApiClient
 
     public async Task<HttpResponseMessage> GetUserAsync(string userId)
     {
-        // ❌ Fetches a new token for every request
         var credential = new ClientSecretCredential(_tenantId, _clientId, _clientSecret);
         var token = await credential.GetTokenAsync(new TokenRequestContext(new[] { _scope }));
 
@@ -104,5 +102,3 @@ Let's focus on cost optimization and security:
 This isn’t bad news — it’s a maturity signal.
 For small workloads, the cost is noise.
 For large-scale systems, it’s a wake-up call to build well-architected and consider best practice.  
-
-
