@@ -1,5 +1,5 @@
 ---
-title: "Merged PR: Azure DevOps commit message is now finally without the PR ID possible"
+title: "Merged PR 42: fix(Azure DevOps): Merge PR without prefix in commit message"
 description: "Azure DevOps has recently added a new feature that allows you to remove the PR Id from the commit message after merging a pull request. "
 authors: [shpendkelmendi]
 tags: [Azure DevOps, Conventional Commits, SemVer, Git, Pull Requests, DevOps]
@@ -15,7 +15,7 @@ One thing I didn’t like is the message added to the beginning of the commit wh
 <CenteredImage 
   src={require("./images/conventionalcommits.png").default}
   width={500}
-  caption="Manually overriding commit message while completing a PR in Azure DevOps"
+  caption="What do you prefer? The commit message with prefix or without?"
 />
 
 ## Why is this important? 
@@ -57,7 +57,7 @@ You can change the commit message by:
 <CenteredImage 
   src={require("./images/manual.png").default}
   width={500}
-  caption="Manually overriding commit message while completing a PR in Azure DevOps"
+  caption="Manually change the commit message when merging a PR in Azure DevOps"
 />
 
 But this is not a reliable way in a team. That’s why this solution didn’t work for us, and we would not recommend it.
@@ -71,7 +71,7 @@ That’s why we searched for alternatives. If you just want the changelog to be 
 This problem was seen and reported in [October 2018](https://developercommunity.visualstudio.com/t/Change-default-title-for-pull-request-co/365716#T-ND11055201):
 
 <CenteredImage 
-  src={require("./images/manual.png").default}
+  src={require("./images/featureRequest.png").default}
   width={500}
   caption="Feature request to disable or change the default commit message when merging a PR in Azure DevOps, created in 2018"
 />
@@ -87,8 +87,8 @@ If you don’t see this, you need to wait a few more weeks until this feature is
 
 <CenteredImage 
   src={require("./images/disablePrefixInADO.png").default}
-  width={500}
-  caption="Disable the PR ID prefix in Azure DevOps settings"
+  caption="Disable the prefix in Azure DevOps settings to have clean commit messages after merging a PR"
+  imageSource='https://learn.microsoft.com/en-us/azure/devops/release-notes/2026/sprint-270-update#new-repository-setting-for-pull-request-id-in-commit-messages'
 />
 
 ## Conclusion
