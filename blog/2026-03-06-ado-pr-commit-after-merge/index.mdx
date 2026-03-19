@@ -1,6 +1,6 @@
 ---
 title: "Merged PR 42: fix(Azure DevOps): Merge PR without prefix in commit message"
-description: "Azure DevOps has recently added a new feature that allows you to remove the PR Id from the commit message after merging a pull request. "
+description: "Azure DevOps has recently added a new feature that allows you to remove the PR ID from the commit message after merging a pull request."
 authors: [shpendkelmendi]
 tags: [Azure DevOps, Conventional Commits, SemVer, Git, Pull Requests, DevOps]
 image: ./images/conventionalcommits.png
@@ -9,36 +9,36 @@ image: ./images/conventionalcommits.png
 import CenteredImage from '@site/src/components/Image';
 
 I use Azure DevOps across many customer projects. I really like it. 
-One thing I didn’t like is the message added to the beginning of the commit when you closed and merged your PR.
+One thing I didn't like is the message added to the beginning of the commit when you closed and merged your PR.
 You can see it above in the image or in my title. Not so nice to read, right? I agree.
 
 ## Why is this important? 
 
-I like to have clean commits. I like simple git graphs, which we can achieve with squash commits as merge type. IMO, the prefix "Merged PR NUMBER" is noise. Next, I like to use conventional commits to enable semantic versioning (SemVer). Conventional commits allow you to create changelogs from commits automatically.
+I like to have a clean commit history.  
+I like simple git graphs.  
+And I want to automate chores like deciding whether a new version is a patch, minor, or major increment.  
+That's why I like to use conventional commits which, enable semantic versioning (SemVer). 
 
-If you don’t know conventional commits. Conventional commit is a lightweight/simple convention for your commit messages. It allows tools to automate based on the commits. Combining it with SemVer, you can create semantic versions. Here are some examples:
+Conventional commit is a simple and lightweight convention for your commit messages.
+Here are some examples of conventional commit types and their impact on versioning:
 
-* feat: login as guest with one-time passcode  
-Used for new features. This creates a new minor version: 1.0.0 → 1.1.0
-* fix: correct device registration validation logic  
-Used for bug fix. This created a new patch version: 1.0.0 → 1.0.1
-* chore: update minor version  
-Any small changes will lead to a new patch version or be ignored (depending on the config).
-* perf: Import up to 10 projects   
-Performance improvements will create a new patch version or be ignored (depending on the config).
-* ci: include e2e tests in pipeline  
-Changes with your CI/CD  will create a new patch version or be ignored (depending on the config).
-* refactor!: remove deprecated import endpoint  
-By using an exclamation mark (!) after your type, you say, "Hey, here comes a breaking change".  
-This will create a new major version: 1.0.0 → 2.0.0
+| Type          | Example                                                                | Meaning                           | Version Impact                              |
+|---------------|------------------------------------------------------------------------|-----------------------------------|---------------------------------------------|
+| **feat**      | `feat: login as guest with one-time passcode`                          | New feature                       | **Minor** → `1.0.0 → 1.1.0`                 |
+| **fix**       | `fix: correct device registration validation logic`                    | Bug fix                           | **Patch** → `1.0.0 → 1.0.1`                 |
+| **chore**     | `chore: update minor version`                                          | Maintenance / small changes       | **Patch** or **ignored** (config dependent) |
+| **perf**      | `perf: import up to 10 projects`                                       | Performance improvement           | **Patch** or **ignored** (config dependent) |
+| **refactor!** | `refactor!: remove deprecated import endpoint`                         | Breaking change indicated with `!`| **Major** → `1.0.0 → 2.0.0`                 |
 
-If you need support writing conventional commits, you can use [commitizen](https://commitizen-tools.github.io/commitizen/).
 
-Alright, you are convinced and ready to use it in Azure DevOps? Let’s check our options.
+> If you need support writing conventional commits, try out [commitizen](https://commitizen-tools.github.io/commitizen/).
+
+The "Merged PR NUMBER" prefix added by Azure DevOps after merging a PR is not helpful. 
+So how can we fix this? Let's check our options.
 
 ## Options for conventional commits
 
-I know 3 options for allowing conventional commits in Azure DevOps:
+I know three options when you want to use conventional commits with Azure DevOps.
 
 ### Manually
 
@@ -54,11 +54,14 @@ You can change the commit message by:
   caption="Manually change the commit message when merging a PR in Azure DevOps"
 />
 
-But this is not a reliable way in a team. That’s why this solution didn’t work for us, and we would not recommend it.
+But this is not a reliable way in a team. That's why this solution didn't work for our team, and we would not recommend it.
 
 ### Workaround: Custom Script 
 
-That’s why we searched for alternatives. If you just want the changelog to be created correctly. John Reilly describes an alternative approach in his [blog post](https://johnnyreilly.com/azure-devops-pull-requests-conventional-commits), using the Azure DevOps API, Node.js, and Typescript. He wrote a tool that uses the autocomplete feature to override the commit message.  So basically, what you have seen previously and needed to do manually.
+That's why we searched for alternatives. If you just want the commit history to be created correctly, 
+John Reilly describes an alternative approach in his [blog post](https://johnnyreilly.com/azure-devops-pull-requests-conventional-commits), using the Azure DevOps API, Node.js, and TypeScript. 
+He wrote a tool that uses the autocomplete feature to override the commit message before merging the PR.  
+So basically, what you have seen in the previous chapter by doing it manually.
 
 ### Disable prefix in Azure DevOps Settings (New)
 
@@ -70,14 +73,15 @@ This problem was seen and reported in [October 2018](https://developercommunity.
   caption="Feature request to disable or change the default commit message when merging a PR in Azure DevOps, created in 2018"
 />
 
-After endless complaints and a long waiting time. This [feature](https://learn.microsoft.com/en-us/azure/devops/release-notes/2026/sprint-270-update#new-repository-setting-for-pull-request-id-in-commit-messages) has been implemented and released (5. March). You can disable the prefix message by:
+After endless complaints and a long waiting time, this [feature](https://learn.microsoft.com/en-us/azure/devops/release-notes/2026/sprint-270-update#new-repository-setting-for-pull-request-id-in-commit-messages) has been implemented and released (5. March). 
+You can disable the prefix message by:
 
 * Go to Project Settings
 * Select Repos → Repositories
 * Select a Repository
 * Disable "Include PR ID in the completion commit message title by default."
 
-If you don’t see this, you need to wait a few more weeks until this feature is available for you, too.
+If you don't see this, you need to wait a few more weeks until this feature is available for you, too.
 
 <CenteredImage 
   src={require("./images/disablePrefixInADO.png").default}
@@ -87,13 +91,13 @@ If you don’t see this, you need to wait a few more weeks until this feature is
 
 ## Conclusion
 
-This seems like a small improvement, but for me, it is more than that. I lost a lot of time implementing workarounds. So thanks to the team who took the time to realise this. 
-The feature is limited by disabling it per project or repository. You can not set this globally for all repositories.
+Based on the feedback it's not only me, struggling with this design decision. So thanks to the team who took the time to realise this. 
+The feature is limited by disabling it per project or repository. You can not set this globally for all repositories in an organization.
 
 ## Further Reading
 
 * [Conventional Commits](https://www.conventionalcommits.org)
 * [Change default title for pull request commits to not include PR id - Developer Community](https://developercommunity.visualstudio.com/t/Change-default-title-for-pull-request-co/365716#T-ND11055201)
-* [Retirement of Global Personal Access Tokens (PATs) in Azure DevOps | Microsoft Learn](https://learn.microsoft.com/en-us/azure/devops/release-notes/2026/sprint-270-update#new-repository-setting-for-pull-request-id-in-commit-messages)
+* [New Feature to disable PR ID in commit messages - Microsoft Learn](https://learn.microsoft.com/en-us/azure/devops/release-notes/2026/sprint-270-update#new-repository-setting-for-pull-request-id-in-commit-messages)
 * [Blog post by John Reilly: Azure DevOps Pull Requests and Conventional Commits](https://johnnyreilly.com/azure-devops-pull-requests-conventional-commits)
 * [Commitizen](https://commitizen-tools.github.io/commitizen/)
