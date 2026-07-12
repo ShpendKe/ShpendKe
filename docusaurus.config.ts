@@ -72,11 +72,13 @@ const config: Config = {
       } satisfies Preset.Options,
     ],
   ],
-  scripts: [
-    {
-      src: 'https://nullitics.com/script.js',
-      async: true,
-    },
+  plugins: [
+    [
+      'docusaurus-plugin-umami',
+      {
+        websiteId: '9c382457-63b6-4b1a-8f99-e745b5c2a83d',
+      },
+    ],
   ],
 
   themeConfig: {
