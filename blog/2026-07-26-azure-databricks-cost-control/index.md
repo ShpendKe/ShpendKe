@@ -3,7 +3,7 @@ title: Controlling Databricks Costs on Azure
 authors: [shpendkelmendi]
 tags: [azure, databricks, cost management, finops, optimization]
 description: "How we control Databricks costs on Azure with transparency, alerts, and budget controls."
-keywords: [azure databricks, cost control, finops, budget control, system tables, well architected]
+keywords: [azure databricks, cost control, finops, budget control, system tables, well architected, well architected framework]
 image: ./images/cover.png
 ---
 
