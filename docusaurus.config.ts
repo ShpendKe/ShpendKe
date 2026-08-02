@@ -74,9 +74,10 @@ const config: Config = {
   ],
   plugins: [
     [
-      'docusaurus-plugin-umami',
+      '@dipakparmar/docusaurus-plugin-umami',
       {
-        websiteId: '9c382457-63b6-4b1a-8f99-e745b5c2a83d',
+        websiteID: '9c382457-63b6-4b1a-8f99-e745b5c2a83d',
+        analyticsDomain: 'cloud.umami.is',
       },
     ],
   ],
