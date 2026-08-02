@@ -72,11 +72,15 @@ const config: Config = {
       } satisfies Preset.Options,
     ],
   ],
-  scripts: [
-    {
-      src: 'https://nullitics.com/script.js',
-      async: true,
-    },
+  plugins: [
+    [
+      '@dipakparmar/docusaurus-plugin-umami',
+      {
+        websiteID: '9c382457-63b6-4b1a-8f99-e745b5c2a83d',
+        analyticsDomain: 'cloud.umami.is',
+        dataDomains: 'shpend-kelmendi.ch',
+      },
+    ],
   ],
 
   themeConfig: {
