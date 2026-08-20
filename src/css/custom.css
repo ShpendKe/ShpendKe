@@ -4,28 +4,28 @@
  * work well for content-centric websites.
  */
 
-/* Brand palette tuned to the logo: warm amber, cocoa, and rich brown accents. */
+/* Brand palette tuned toward a muted olive-green vintage editorial feel. */
 :root {
-  --ifm-color-primary: #c78a7d;
-  --ifm-color-primary-dark: #a76e5d;
-  --ifm-color-primary-darker: #89564d;
-  --ifm-color-primary-darkest: #5f3a34;
-  --ifm-color-primary-light: #e7b7a8;
-  --ifm-color-primary-lighter: #f0d4c8;
-  --ifm-color-primary-lightest: #f9ece7;
-  --ifm-color-primary-contrast-background: #fdf5f2;
-  --ifm-page-background-color: #f5efe9;
-  --ifm-background-color: #f5efe9;
-  --ifm-background-surface-color: #fffdfb;
-  --ifm-navbar-background-color: rgba(245, 239, 233, 0.84);
-  --ifm-card-background-color: #fffdfb;
-  --ifm-link-color: #8d6959;
-  --ifm-link-hover-color: #6e4d42;
+  --ifm-color-primary: #7f8f5f;
+  --ifm-color-primary-dark: #697a4d;
+  --ifm-color-primary-darker: #53633d;
+  --ifm-color-primary-darkest: #3d492f;
+  --ifm-color-primary-light: #bac79a;
+  --ifm-color-primary-lighter: #dfe7c9;
+  --ifm-color-primary-lightest: #f2f5e8;
+  --ifm-color-primary-contrast-background: #f6f8ef;
+  --ifm-page-background-color: #f3f1ea;
+  --ifm-background-color: #f3f1ea;
+  --ifm-background-surface-color: #fffdf9;
+  --ifm-navbar-background-color: rgba(243, 241, 234, 0.84);
+  --ifm-card-background-color: #fffdf9;
+  --ifm-link-color: #586d40;
+  --ifm-link-hover-color: #425231;
   --ifm-code-font-size: 95%;
-  --ifm-font-color-base: #362d2a;
-  --ifm-heading-color: #433934;
-  --ifm-color-emphasis-300: rgba(199, 138, 125, 0.16);
-  --docusaurus-highlighted-code-line-bg: rgba(199, 138, 125, 0.08);
+  --ifm-font-color-base: #2e352c;
+  --ifm-heading-color: #3a4337;
+  --ifm-color-emphasis-300: rgba(127, 143, 95, 0.16);
+  --docusaurus-highlighted-code-line-bg: rgba(127, 143, 95, 0.08);
 }
 
 html {
@@ -33,7 +33,7 @@ html {
 }
 
 body {
-  background: #f5efe9;
+  background: #f3f1ea;
 }
 
 h1,
@@ -53,7 +53,7 @@ h6 {
 }
 
 .navbar {
-  box-shadow: 0 1px 0 rgba(92, 49, 16, 0.12);
+  box-shadow: 0 1px 0 rgba(64, 77, 45, 0.12);
   backdrop-filter: blur(6px);
 }
 
@@ -72,13 +72,13 @@ h6 {
 }
 
 .footer {
-  background: linear-gradient(180deg, #4a290a 0%, #2d1808 100%);
+  background: linear-gradient(180deg, #2d3524 0%, #1f261a 100%);
   border-top: 1px solid rgba(255, 255, 255, 0.08);
 }
 
 .footer__link-item,
 .footer__copyright {
-  color: rgba(255, 249, 241, 0.85);
+  color: rgba(244, 247, 238, 0.85);
 }
 
 .button,
@@ -89,38 +89,38 @@ h6 {
 .button--primary {
   background: linear-gradient(135deg, var(--ifm-color-primary-light), var(--ifm-color-primary));
   border: none;
-  box-shadow: 0 8px 16px rgba(139, 77, 18, 0.18);
+  box-shadow: 0 8px 16px rgba(65, 80, 46, 0.16);
 }
 
 .button--primary:hover {
   background: linear-gradient(135deg, var(--ifm-color-primary), var(--ifm-color-primary-dark));
 }
 
-/* For readability concerns, choose a darker, calmer palette with strong contrast. */
+/* Dark mode stays readable while keeping the olive-green accent. */
 [data-theme='dark'] {
-  --ifm-color-primary: #f3c8b9;
-  --ifm-color-primary-dark: #dca28a;
-  --ifm-color-primary-darker: #c28772;
-  --ifm-color-primary-darkest: #9d6e62;
-  --ifm-color-primary-light: #f9ddd2;
-  --ifm-color-primary-lighter: #faeee8;
-  --ifm-color-primary-lightest: #fff5f1;
-  --ifm-background-color: #191513;
-  --ifm-page-background-color: #191513;
-  --ifm-background-surface-color: #221d1b;
-  --ifm-navbar-background-color: rgba(25, 21, 19, 0.86);
-  --ifm-card-background-color: #221d1b;
-  --ifm-font-color-base: #f4eae3;
-  --ifm-font-color-secondary: #d7c9c1;
-  --ifm-heading-color: #fff6f0;
-  --ifm-link-color: #f7d4c1;
-  --ifm-link-hover-color: #fce6d8;
-  --ifm-color-emphasis-300: rgba(243, 200, 185, 0.18);
-  --docusaurus-highlighted-code-line-bg: rgba(243, 200, 185, 0.08);
+  --ifm-color-primary: #dfe9c5;
+  --ifm-color-primary-dark: #bfd2a0;
+  --ifm-color-primary-darker: #a4b885;
+  --ifm-color-primary-darkest: #819269;
+  --ifm-color-primary-light: #f2f6e9;
+  --ifm-color-primary-lighter: #f8faf3;
+  --ifm-color-primary-lightest: #ffffff;
+  --ifm-background-color: #1a1f17;
+  --ifm-page-background-color: #1a1f17;
+  --ifm-background-surface-color: #222a1f;
+  --ifm-navbar-background-color: rgba(26, 31, 23, 0.86);
+  --ifm-card-background-color: #222a1f;
+  --ifm-font-color-base: #edf3e8;
+  --ifm-font-color-secondary: #c5d0be;
+  --ifm-heading-color: #f7faf1;
+  --ifm-link-color: #e3ebd2;
+  --ifm-link-hover-color: #f1f7ea;
+  --ifm-color-emphasis-300: rgba(223, 233, 197, 0.18);
+  --docusaurus-highlighted-code-line-bg: rgba(223, 233, 197, 0.08);
 }
 
 [data-theme='dark'] body {
-  background: #191513;
+  background: #1a1f17;
   color: var(--ifm-font-color-base);
 }
 
@@ -128,7 +128,7 @@ h6 {
 [data-theme='dark'] .navbar__brand,
 [data-theme='dark'] .menu__link,
 [data-theme='dark'] .table-of-contents__link {
-  color: #f4ead8;
+  color: #edf3f4;
 }
 
 [data-theme='dark'] .navbar__link:hover,
