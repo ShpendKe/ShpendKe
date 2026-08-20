@@ -4,27 +4,133 @@
  * work well for content-centric websites.
  */
 
-/* You can override the default Infima variables here. */
+/* Brand palette tuned to the logo: warm amber, cocoa, and rich brown accents. */
 :root {
-  --ifm-color-primary: #2e8555;
-  --ifm-color-primary-dark: #29784c;
-  --ifm-color-primary-darker: #277148;
-  --ifm-color-primary-darkest: #205d3b;
-  --ifm-color-primary-light: #33925d;
-  --ifm-color-primary-lighter: #359962;
-  --ifm-color-primary-lightest: #3cad6e;
+  --ifm-color-primary: #8b4d12;
+  --ifm-color-primary-dark: #733d0c;
+  --ifm-color-primary-darker: #5d3009;
+  --ifm-color-primary-darkest: #3f2107;
+  --ifm-color-primary-light: #d98b2d;
+  --ifm-color-primary-lighter: #efc46e;
+  --ifm-color-primary-lightest: #f7e7bb;
+  --ifm-color-primary-contrast-background: #fff5e7;
+  --ifm-page-background-color: #fffaf3;
+  --ifm-background-color: #fffaf3;
+  --ifm-background-surface-color: #fffdf9;
+  --ifm-navbar-background-color: rgba(255, 250, 243, 0.82);
+  --ifm-card-background-color: #fffdf9;
+  --ifm-link-color: #8b4d12;
+  --ifm-link-hover-color: #6e390c;
   --ifm-code-font-size: 95%;
-  --docusaurus-highlighted-code-line-bg: rgba(0, 0, 0, 0.1);
+  --ifm-font-color-base: #2d1a0c;
+  --ifm-heading-color: #3a220a;
+  --ifm-color-emphasis-300: rgba(139, 77, 18, 0.18);
+  --docusaurus-highlighted-code-line-bg: rgba(139, 77, 18, 0.12);
 }
 
-/* For readability concerns, you should choose a lighter palette in dark mode. */
+html {
+  background: var(--ifm-page-background-color);
+}
+
+body {
+  background: linear-gradient(180deg, #fffaf3 0%, #fffdf9 100%);
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  color: var(--ifm-heading-color);
+}
+
+.navbar {
+  box-shadow: 0 1px 0 rgba(92, 49, 16, 0.12);
+  backdrop-filter: blur(8px);
+}
+
+.navbar__brand {
+  font-weight: 700;
+  letter-spacing: 0.02em;
+}
+
+.navbar__logo {
+  height: 2.1rem;
+}
+
+.navbar__item .navbar__link:hover,
+.navbar__item .navbar__link:hover .navbar__link-text {
+  color: var(--ifm-color-primary-dark);
+}
+
+.footer {
+  background: linear-gradient(180deg, #4a290a 0%, #2d1808 100%);
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.footer__link-item,
+.footer__copyright {
+  color: rgba(255, 249, 241, 0.85);
+}
+
+.button,
+.pagination-nav__link {
+  transition: all 0.2s ease;
+}
+
+.button--primary {
+  background: linear-gradient(135deg, var(--ifm-color-primary-light), var(--ifm-color-primary));
+  border: none;
+  box-shadow: 0 8px 16px rgba(139, 77, 18, 0.18);
+}
+
+.button--primary:hover {
+  background: linear-gradient(135deg, var(--ifm-color-primary), var(--ifm-color-primary-dark));
+}
+
+/* For readability concerns, choose a darker, calmer palette with strong contrast. */
 [data-theme='dark'] {
-  --ifm-color-primary: #25c2a0;
-  --ifm-color-primary-dark: #21af90;
-  --ifm-color-primary-darker: #1fa588;
-  --ifm-color-primary-darkest: #1a8870;
-  --ifm-color-primary-light: #29d5b0;
-  --ifm-color-primary-lighter: #32d8b4;
-  --ifm-color-primary-lightest: #4fddbf;
-  --docusaurus-highlighted-code-line-bg: rgba(0, 0, 0, 0.3);
+  --ifm-color-primary: #e4b15e;
+  --ifm-color-primary-dark: #d59b3c;
+  --ifm-color-primary-darker: #c88423;
+  --ifm-color-primary-darkest: #9d5f17;
+  --ifm-color-primary-light: #f0cb85;
+  --ifm-color-primary-lighter: #f7dfae;
+  --ifm-color-primary-lightest: #fff0c9;
+  --ifm-background-color: #17120d;
+  --ifm-page-background-color: #17120d;
+  --ifm-background-surface-color: #1f1813;
+  --ifm-navbar-background-color: rgba(23, 18, 13, 0.88);
+  --ifm-card-background-color: #1f1813;
+  --ifm-font-color-base: #f2ebdf;
+  --ifm-font-color-secondary: #d9cdb8;
+  --ifm-heading-color: #f9f1e5;
+  --ifm-link-color: #f0c77b;
+  --ifm-link-hover-color: #f7dca2;
+  --ifm-color-emphasis-300: rgba(228, 177, 94, 0.2);
+  --docusaurus-highlighted-code-line-bg: rgba(228, 177, 94, 0.12);
+}
+
+[data-theme='dark'] body {
+  background: linear-gradient(180deg, #17120d 0%, #1e1712 100%);
+  color: var(--ifm-font-color-base);
+}
+
+[data-theme='dark'] .navbar__link,
+[data-theme='dark'] .navbar__brand,
+[data-theme='dark'] .menu__link,
+[data-theme='dark'] .table-of-contents__link {
+  color: #f4ead8;
+}
+
+[data-theme='dark'] .navbar__link:hover,
+[data-theme='dark'] .menu__link:hover,
+[data-theme='dark'] .table-of-contents__link:hover {
+  color: var(--ifm-color-primary-light);
+}
+
+[data-theme='dark'] .markdown a,
+[data-theme='dark'] .theme-doc-markdown a {
+  color: var(--ifm-link-color);
 }
