@@ -6,26 +6,26 @@
 
 /* Brand palette tuned to the logo: warm amber, cocoa, and rich brown accents. */
 :root {
-  --ifm-color-primary: #8b4d12;
-  --ifm-color-primary-dark: #733d0c;
-  --ifm-color-primary-darker: #5d3009;
-  --ifm-color-primary-darkest: #3f2107;
-  --ifm-color-primary-light: #d98b2d;
-  --ifm-color-primary-lighter: #efc46e;
-  --ifm-color-primary-lightest: #f7e7bb;
-  --ifm-color-primary-contrast-background: #fff5e7;
-  --ifm-page-background-color: #fffaf3;
-  --ifm-background-color: #fffaf3;
-  --ifm-background-surface-color: #fffdf9;
-  --ifm-navbar-background-color: rgba(255, 250, 243, 0.82);
-  --ifm-card-background-color: #fffdf9;
-  --ifm-link-color: #8b4d12;
-  --ifm-link-hover-color: #6e390c;
+  --ifm-color-primary: #c78a7d;
+  --ifm-color-primary-dark: #a76e5d;
+  --ifm-color-primary-darker: #89564d;
+  --ifm-color-primary-darkest: #5f3a34;
+  --ifm-color-primary-light: #e7b7a8;
+  --ifm-color-primary-lighter: #f0d4c8;
+  --ifm-color-primary-lightest: #f9ece7;
+  --ifm-color-primary-contrast-background: #fdf5f2;
+  --ifm-page-background-color: #f5efe9;
+  --ifm-background-color: #f5efe9;
+  --ifm-background-surface-color: #fffdfb;
+  --ifm-navbar-background-color: rgba(245, 239, 233, 0.84);
+  --ifm-card-background-color: #fffdfb;
+  --ifm-link-color: #8d6959;
+  --ifm-link-hover-color: #6e4d42;
   --ifm-code-font-size: 95%;
-  --ifm-font-color-base: #2d1a0c;
-  --ifm-heading-color: #3a220a;
-  --ifm-color-emphasis-300: rgba(139, 77, 18, 0.18);
-  --docusaurus-highlighted-code-line-bg: rgba(139, 77, 18, 0.12);
+  --ifm-font-color-base: #362d2a;
+  --ifm-heading-color: #433934;
+  --ifm-color-emphasis-300: rgba(199, 138, 125, 0.16);
+  --docusaurus-highlighted-code-line-bg: rgba(199, 138, 125, 0.08);
 }
 
 html {
@@ -33,7 +33,7 @@ html {
 }
 
 body {
-  background: linear-gradient(180deg, #fffaf3 0%, #fffdf9 100%);
+  background: #f5efe9;
 }
 
 h1,
@@ -43,11 +43,18 @@ h4,
 h5,
 h6 {
   color: var(--ifm-heading-color);
+  font-family: Georgia, "Times New Roman", serif;
+  letter-spacing: -0.02em;
+}
+
+.markdown,
+.theme-doc-markdown {
+  line-height: 1.75;
 }
 
 .navbar {
   box-shadow: 0 1px 0 rgba(92, 49, 16, 0.12);
-  backdrop-filter: blur(8px);
+  backdrop-filter: blur(6px);
 }
 
 .navbar__brand {
@@ -91,29 +98,29 @@ h6 {
 
 /* For readability concerns, choose a darker, calmer palette with strong contrast. */
 [data-theme='dark'] {
-  --ifm-color-primary: #e4b15e;
-  --ifm-color-primary-dark: #d59b3c;
-  --ifm-color-primary-darker: #c88423;
-  --ifm-color-primary-darkest: #9d5f17;
-  --ifm-color-primary-light: #f0cb85;
-  --ifm-color-primary-lighter: #f7dfae;
-  --ifm-color-primary-lightest: #fff0c9;
-  --ifm-background-color: #17120d;
-  --ifm-page-background-color: #17120d;
-  --ifm-background-surface-color: #1f1813;
-  --ifm-navbar-background-color: rgba(23, 18, 13, 0.88);
-  --ifm-card-background-color: #1f1813;
-  --ifm-font-color-base: #f2ebdf;
-  --ifm-font-color-secondary: #d9cdb8;
-  --ifm-heading-color: #f9f1e5;
-  --ifm-link-color: #f0c77b;
-  --ifm-link-hover-color: #f7dca2;
-  --ifm-color-emphasis-300: rgba(228, 177, 94, 0.2);
-  --docusaurus-highlighted-code-line-bg: rgba(228, 177, 94, 0.12);
+  --ifm-color-primary: #f3c8b9;
+  --ifm-color-primary-dark: #dca28a;
+  --ifm-color-primary-darker: #c28772;
+  --ifm-color-primary-darkest: #9d6e62;
+  --ifm-color-primary-light: #f9ddd2;
+  --ifm-color-primary-lighter: #faeee8;
+  --ifm-color-primary-lightest: #fff5f1;
+  --ifm-background-color: #191513;
+  --ifm-page-background-color: #191513;
+  --ifm-background-surface-color: #221d1b;
+  --ifm-navbar-background-color: rgba(25, 21, 19, 0.86);
+  --ifm-card-background-color: #221d1b;
+  --ifm-font-color-base: #f4eae3;
+  --ifm-font-color-secondary: #d7c9c1;
+  --ifm-heading-color: #fff6f0;
+  --ifm-link-color: #f7d4c1;
+  --ifm-link-hover-color: #fce6d8;
+  --ifm-color-emphasis-300: rgba(243, 200, 185, 0.18);
+  --docusaurus-highlighted-code-line-bg: rgba(243, 200, 185, 0.08);
 }
 
 [data-theme='dark'] body {
-  background: linear-gradient(180deg, #17120d 0%, #1e1712 100%);
+  background: #191513;
   color: var(--ifm-font-color-base);
 }
 
