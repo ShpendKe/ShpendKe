@@ -8,9 +8,9 @@ image: ./images/cover.png
 ---
 
 # Controlling Databricks Costs on Azure, Part 2: Building the Cost Dashboard
-In [Part 1](../2026-07-26-azure-databricks-cost-control/index.md), I explained our approach to cost transparency and control. Now we start building it, beginning with the cost dashboard.
+In [Part 1](../2026-07-26-azure-databricks-cost-control/index.md), I compared unexpected cloud costs to a surprise restaurant bill. An itemized bill helps you understand what you ordered and spot a bottle of wine that might belong to another table. A cost dashboard does something similar: it breaks down spending so you can investigate unexpected charges.
 
-We start with visibility because meaningful alerts and budgets need a clear picture of current spending. In this post, you'll learn:
+That visibility is the starting point for meaningful alerts and budgets. In this post, we'll build a dashboard and explore:
 
 - Which dashboarding options exist on Azure and inside Databricks, and where each one fits
 - How to move the built-in usage dashboard from ClickOps to Terraform
