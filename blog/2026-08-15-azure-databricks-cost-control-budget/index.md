@@ -53,7 +53,7 @@ With more than a handful of users, per-user budgets become a maintenance burden.
 | Data analysts | $300 | Mostly SQL warehouse usage, predictable patterns |
 | Beta testers | Flexible, higher | Deliberately experiment with new (often serverless/AI) features |
 
-These numbers are ours, not a recommendation. The point is the *pattern*: limits are agreed with the team based on responsibility and need, revisited when roles or workloads change, and transparent to everyone. When a group threshold is reached, the notification goes to the group members and the platform team. Nobody is surprised, and nobody feels policed. The budget conversation happened *before* the limit fired.
+These numbers are ours, not a recommendation. The point is the *pattern*: limits are agreed with the team based on responsibility and need, revisited when roles or workloads change, and transparent to everyone. When a group threshold is reached, the notification goes to the platform team **only**. This is the moment when the budget conversation happens. It's not about blaming, it's about understanding the usage, especially the usage of AI (Genie), and how it can be governed without limiting the users. 
 
 ```mermaid
 flowchart TD
