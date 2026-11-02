@@ -57,7 +57,7 @@ These numbers are ours, not a recommendation. The point is the *pattern*: limits
 
 ```mermaid
 flowchart TD
-    U["User exceeds<br/>role-based threshold"] --> N["Notification to<br/>email group + platform team"]
+    U["User exceeds<br/>role-based threshold"] --> N["Notification to platform team"]
     N --> REV["Review with the user:<br/>legitimate need or waste?"]
     REV -- "Legitimate" --> OV["Override limit individually<br/>(e.g. $100 → $300)"]
     REV -- "Waste / mistake" --> FIX["Fix the cost driver,<br/>keep the limit"]
