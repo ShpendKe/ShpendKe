@@ -106,6 +106,7 @@ const config: Config = {
       },
       items: [
         { to: '/tags/well-architected-framework', label: 'Well Architected', position: 'left' },
+        { to: '/tags/data-platform', label: 'Data Platform', position: 'left' },
         { to: '/tags/iac', label: 'IaC', position: 'left' },
         { to: '/tags', label: 'Tags', position: 'right' },
         { to: '/archive', label: 'Archive', position: 'right' },
