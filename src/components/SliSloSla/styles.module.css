@@ -1,0 +1,75 @@
+
+.wrapper {
+  border: 1px solid var(--ifm-color-emphasis-300);
+  border-radius: 12px;
+  padding: 1.25rem;
+  margin: 1.5rem 0;
+}
+.switch {
+  display: flex;
+  gap: 0.5rem;
+  margin-bottom: 1rem;
+}
+.switch button {
+  border: 1px solid var(--ifm-color-emphasis-400);
+  background: transparent;
+  color: inherit;
+  border-radius: 8px;
+  padding: 0.35rem 0.8rem;
+  cursor: pointer;
+}
+.switch .active {
+  background: var(--ifm-color-primary);
+  border-color: var(--ifm-color-primary);
+  color: #fff;
+}
+.stairs {
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+  margin-bottom: 1rem;
+}
+.step {
+  display: flex;
+  flex-direction: column;
+  padding: 0.6rem 0.9rem;
+  border-radius: 8px;
+  color: #1b1b1d;
+}
+.slaStep { background: #f7c1c1; margin-right: 0; }
+.sloStep { background: #b5d4f4; margin-right: 2rem; }
+.sliStep { background: #c0dd97; margin-right: 4rem; }
+.control {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+  margin-bottom: 0.75rem;
+}
+.tankRow {
+  display: flex;
+  gap: 1rem;
+  align-items: stretch;
+}
+.tank {
+  position: relative;
+  width: 70px;
+  min-height: 130px;
+  border: 1px solid var(--ifm-color-emphasis-400);
+  border-radius: 10px;
+  overflow: hidden;
+  flex: none;
+}
+.fill {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+}
+.ok { background: #639922; }
+.low { background: #ba7517; }
+.empty { background: #e24b4a; }
+.warning {
+  color: var(--ifm-color-danger);
+  font-size: 0.9rem;
+  margin-top: 0.25rem;
+}
